@@ -1,2 +1,1 @@
-# goncalos-world
-repository for my personal website
+# Goncalo's World
