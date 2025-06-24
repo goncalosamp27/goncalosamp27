@@ -1,1 +1,20 @@
+:root {
+  font-family: 'Outfit', sans-serif;
+  --white: #EFEFEF;
+
+/* Colors for beach theme */
+  --ocean-blue: #489EFF;
+  --ocean-yellow: #FFC28C;
+  --ocean-hover: #FFDDBF;
+  --ocean-one: #4397F5;
+  --ocean-two: #2F5792;
+  --ocean-three: #1A3656;
+}
+
 @import "tailwindcss";
+
+
+.title {
+  text-shadow:
+    0px 5px 2px var(--ocean-three);
+}
