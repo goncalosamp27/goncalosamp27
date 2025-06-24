@@ -1,5 +1,6 @@
 <script lang="ts">
   import { currentTheme, themes } from '$lib/stores/theme';
+   import '../app.css';
   import { onMount } from 'svelte';
 
   onMount(() => {
@@ -14,5 +15,4 @@
     currentTheme.subscribe(applyTheme);
   });
 </script>
-
-<slot />
+<slot/>
