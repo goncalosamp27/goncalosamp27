@@ -7,14 +7,14 @@
     let showThemes = false;
 
     onMount(() => { open = true; });
-    $: currentTheme.subscribe(value => $currentTheme = value);
-    function toggleModeMenu () {showThemes = !showThemes;}
-    function switchTo(theme: ThemeName) {currentTheme.set(theme);}
+    $: currentTheme.subscribe( value => $currentTheme = value );
+    function toggleModeMenu () { showThemes = !showThemes; }
+    function switchTo(theme: ThemeName) { currentTheme.set(theme); }
 </script>
 
 <section 
     id ="hero"
-    class="min-h-screen flex flex-col overflow-hidden"
+    class="h-screen flex flex-col overflow-hidden"
     style="background: linear-gradient(var(--sky-bg) 0%, var(--sky-bg) 40%, var(--sky-grad) 100%); color: var(--white)"
 >
 
@@ -96,14 +96,45 @@
 
 </header>
 
-<div class="flex-1 flex items-center justify-center ">
-    <h1 class="text-8xl -mt-32 font-bold title" in:fly={{ y: -50, duration: 2500, opacity: 0 }}>
+<div class="flex-1 flex items-center justify-center">
+    <h1 class="text-8xl font-bold title text-center " in:fly={{ y: -50, duration: 2500, opacity: 0 }}>
         Gonçalo's World
     </h1>
 </div>
-
-
 {/if}
+
+<!-- Animated waves for ocean theme -->
+{#if $currentTheme === 'ocean'}
+<div class="relative w-[2112px] h-[160px] aspect-[1980/160]">
+  <div class="absolute top-0 w-full h-full animate-wave-horizontal-right left-1/2 -translate-x-1/2">
+    <svg class="w-[2112px] h-[191px] -ml-[132px]  text-[var(--bg-one)] animate-wave-vertical-up" viewBox="0 0 2112 191" preserveAspectRatio="none">
+      {#each Array(16) as _, i} <path d={`M${i * 132 + 132} 334.357H${i * 132}V0C${i * 132 + 13.0986} 15.278 ${i * 132 + 37.7486} 25.5732 ${i * 132 + 66} 25.5732C${i * 132 + 94.2514} 25.5732 ${i * 132 + 118.901} 15.278 ${i * 132 + 132} 0V334.357Z`} fill="currentColor"/> {/each}
+    </svg>
+  </div>
+
+  <div class="absolute top-[40px]  w-full h-full animate-wave-horizontal-left z-10 left-1/2 -translate-x-1/2">
+    <svg class="w-[2112px] -mr-[132px] h-[191px] text-[var(--bg-two)] animate-wave-vertical-down" viewBox="0 0 2112 191" preserveAspectRatio="none">
+      {#each Array(17) as _, i} <path d={`M${i * 132 + 66} 334.357H${i * 132 - 66}V0 C${i * 132 - 66 + 13.0986} 15.278 ${i * 132 - 66 + 37.7486} 25.5732 ${i * 132 - 66 + 66} 25.5732 C${i * 132 - 66 + 94.2514} 25.5732 ${i * 132 - 66 + 118.901} 15.278 ${i * 132 - 66 + 132} 0 V334.357Z`} fill="currentColor"/> {/each}
+    </svg>
+  </div>
+
+  <div class="absolute top-[120px]  w-full h-full animate-wave-horizontal-right z-20 left-1/2 -translate-x-1/2">
+    <svg class="w-[2112px] -ml-[132px] h-[191px] text-[var(--bg-three)] animate-wave-vertical-up" viewBox="0 0 2112 191" preserveAspectRatio="none">
+      {#each Array(16) as _, i} <path d={`M${i * 132 + 132} 334.357H${i * 132}V0C${i * 132 + 13.0986} 15.278 ${i * 132 + 37.7486} 25.5732 ${i * 132 + 66} 25.5732C${i * 132 + 94.2514} 25.5732 ${i * 132 + 118.901} 15.278 ${i * 132 + 132} 0V334.357Z`} fill="currentColor"/> {/each}
+    </svg>
+  </div>
+</div>
+{/if}
+
 </section>
 
-
+<style>
+  @keyframes wave-horizontal-right {0% {transform: translateX(0);} 100% {transform: translateX(132px);}}
+  @keyframes wave-horizontal-left {0% {transform: translateX(0);} 100% {transform: translateX(-132px);}}
+  @keyframes wave-vertical-up {0%, 100% {transform: translateY(0);} 50% {transform: translateY(-30px);}}
+  @keyframes wave-vertical-down {0%, 100% {transform: translateY(0);} 50% {transform: translateY(10px);}}
+  .animate-wave-horizontal-right {animation: wave-horizontal-right 3s linear infinite;}
+  .animate-wave-horizontal-left {animation: wave-horizontal-left 3s linear infinite;}
+  .animate-wave-vertical-up {animation: wave-vertical-up 3s ease-in-out infinite;}
+  .animate-wave-vertical-down {animation: wave-vertical-down 3s ease-in-out infinite;}
+</style>
