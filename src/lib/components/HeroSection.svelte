@@ -2,31 +2,36 @@
     import { currentTheme, type ThemeName } from '$lib/stores/theme';
     import { fly, fade, slide } from 'svelte/transition';
     import { onMount } from 'svelte';
+    import { read } from '$app/server';
 
     let open = false;
     let showThemes = false;
 
     onMount(() => { open = true; });
-    $: currentTheme.subscribe( value => $currentTheme = value );
+    
     function toggleModeMenu () { showThemes = !showThemes; }
     function switchTo(theme: ThemeName) { currentTheme.set(theme); }
 
     // OCEAN THEME -> "responsive" wave generator //
-    const waveWidth = 132;
-    let screenWidth = 0;
+        const waveWidth = 132;
+        let screenWidth = 0;
+        let oceanReady = false;
 
-    onMount(() => {
-		const update = () => {
-			screenWidth = window.innerWidth;
-			numWaves = Math.ceil(screenWidth / waveWidth) + 2;
-		};
-		update();
-		window.addEventListener("resize", update);
-		return () => window.removeEventListener("resize", update);
-	});
-    
-    $: numWaves = Math.ceil(screenWidth / waveWidth) + 2;
-    $: viewBoxWidth = (numWaves + 1) * 132;
+        onMount(() => {
+            const update = () => {
+                screenWidth = window.innerWidth;
+                numWaves = Math.ceil(screenWidth / waveWidth) + 2;
+                setTimeout(() => {
+                    oceanReady = true;
+                }, 10);
+            };
+            update();
+            window.addEventListener("resize", update);
+            return () => window.removeEventListener("resize", update);
+        });
+        
+        $: numWaves = Math.ceil(screenWidth / waveWidth) + 2;
+        $: viewBoxWidth = (numWaves + 1) * 132;
 </script>
 
 <section id ="hero" class="h-screen flex flex-col overflow-hidden" style="background: linear-gradient(var(--sky-bg) 0%, var(--sky-bg) 40%, var(--sky-grad) 100%); color: var(--white)">
@@ -106,7 +111,6 @@
             </div>
         {/if}
     </div>
-
 </header>
 
 <div class="flex-1 flex items-center justify-center">
@@ -114,31 +118,38 @@
         Gonçalo's World
     </h1>
 </div>
-{/if}
+
 
 <!-- OCEAN theme -> animated waves -->
-{#if $currentTheme === 'ocean' && numWaves}
-<div class="relative h-[160px] aspect-[1980/160]">
-  <div class="absolute top-0 h-full animate-wave-horizontal-right left-1/2 -translate-x-1/2">
-    <svg class="h-[191px] -ml-[132px]  text-[var(--bg-one)] animate-wave-vertical-up" viewBox={`0 0 ${viewBoxWidth} 191`} preserveAspectRatio="none">
-      {#each Array(numWaves) as _, i} <path d={`M${i * 132 + 132} 334.357H${i * 132}V0C${i * 132 + 13.0986} 15.278 ${i * 132 + 37.7486} 25.5732 ${i * 132 + 66} 25.5732C${i * 132 + 94.2514} 25.5732 ${i * 132 + 118.901} 15.278 ${i * 132 + 132} 0V334.357Z`} fill="currentColor"/> {/each}
-    </svg>
+{#if $currentTheme === 'ocean' && oceanReady}
+<div class="relative h-[200px] aspect-[1980/160]">
+  <div in:fly={{ y: 500, duration: 500, delay: 800 }}>
+    <div class="absolute top-0 h-full animate-wave-horizontal-right z-0 left-1/2 -translate-x-1/2">
+        <svg class="h-[191px] -ml-[132px]  text-[var(--bg-one)] animate-wave-vertical-up" viewBox={`0 0 ${viewBoxWidth} 191`} preserveAspectRatio="none">
+        {#each Array(numWaves) as _, i} <path d={`M${i * 132 + 132} 334.357H${i * 132}V0C${i * 132 + 13.0986} 15.278 ${i * 132 + 37.7486} 25.5732 ${i * 132 + 66} 25.5732C${i * 132 + 94.2514} 25.5732 ${i * 132 + 118.901} 15.278 ${i * 132 + 132} 0V334.357Z`} fill="currentColor"
+        /> {/each}
+        </svg>
+    </div>
   </div>
 
-  <div class="absolute top-[40px] h-full animate-wave-horizontal-left z-10 left-1/2 -translate-x-1/2">
-    <svg class="-mr-[132px] h-[191px] text-[var(--bg-two)] animate-wave-vertical-down" viewBox={`0 0 ${viewBoxWidth} 191`} preserveAspectRatio="none">
-      {#each Array(numWaves + 1) as _, i} <path d={`M${i * 132 + 66} 334.357H${i * 132 - 66}V0 C${i * 132 - 66 + 13.0986} 15.278 ${i * 132 - 66 + 37.7486} 25.5732 ${i * 132 - 66 + 66} 25.5732 C${i * 132 - 66 + 94.2514} 25.5732 ${i * 132 - 66 + 118.901} 15.278 ${i * 132 - 66 + 132} 0 V334.357Z`} fill="currentColor"/> {/each}
-    </svg>
+  <div in:fly={{ y: 500, duration: 500, delay: 400 }}>
+    <div class="absolute top-[40px] h-full animate-wave-horizontal-left z-10 left-1/2 -translate-x-1/2">
+        <svg class="-mr-[132px] h-[191px] text-[var(--bg-two)] animate-wave-vertical-down" viewBox={`0 0 ${viewBoxWidth} 191`} preserveAspectRatio="none">
+        {#each Array(numWaves + 1) as _, i} <path d={`M${i * 132 + 66} 334.357H${i * 132 - 66}V0 C${i * 132 - 66 + 13.0986} 15.278 ${i * 132 - 66 + 37.7486} 25.5732 ${i * 132 - 66 + 66} 25.5732 C${i * 132 - 66 + 94.2514} 25.5732 ${i * 132 - 66 + 118.901} 15.278 ${i * 132 - 66 + 132} 0 V334.357Z`} fill="currentColor"/> {/each}
+        </svg>
+    </div>
   </div>
 
-  <div class="absolute top-[120px] h-full animate-wave-horizontal-right z-20 left-1/2 -translate-x-1/2">
-    <svg class="-ml-[132px] h-[191px] text-[var(--bg-three)] animate-wave-vertical-up" viewBox={`0 0 ${viewBoxWidth} 191`} preserveAspectRatio="none">
-      {#each Array(numWaves) as _, i} <path d={`M${i * 132 + 132} 334.357H${i * 132}V0C${i * 132 + 13.0986} 15.278 ${i * 132 + 37.7486} 25.5732 ${i * 132 + 66} 25.5732C${i * 132 + 94.2514} 25.5732 ${i * 132 + 118.901} 15.278 ${i * 132 + 132} 0V334.357Z`} fill="currentColor"/> {/each}
-    </svg>
+  <div in:fly={{ y: 500, duration: 500, delay: 0 }}>
+    <div class="absolute top-[120px] h-full animate-wave-horizontal-right z-20 left-1/2 -translate-x-1/2">
+        <svg class="-ml-[132px] h-[191px] text-[var(--bg-three)] animate-wave-vertical-up" viewBox={`0 0 ${viewBoxWidth} 191`} preserveAspectRatio="none">
+        {#each Array(numWaves) as _, i} <path d={`M${i * 132 + 132} 334.357H${i * 132}V0C${i * 132 + 13.0986} 15.278 ${i * 132 + 37.7486} 25.5732 ${i * 132 + 66} 25.5732C${i * 132 + 94.2514} 25.5732 ${i * 132 + 118.901} 15.278 ${i * 132 + 132} 0V334.357Z`} fill="currentColor"/> {/each}
+        </svg>
+    </div>
   </div>
 </div>
 {/if}
-
+{/if} <!-- closes #if open -->
 </section>
 
 <style>
