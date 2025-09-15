@@ -1,4 +1,4 @@
-# Goncalo's World
+# Gonçalo's World
 
 Hey! My name is Gonçalo and I decided to challenge myself, developing a fun, interactive and good looking website!
 
@@ -22,4 +22,7 @@ After studying web technologies and experimenting with several different languag
 <p align="center"><strong>06 / 24 / 2025 : Home Page</strong></p>
 
 <p align="center"><img src="screenshots/07-02-2025.gif" alt="07-02-2025"width="100%"/></p>
-<p align="center"><strong>06 / 24 / 2025 : Home Page (with waves)</strong></p>
+<p align="center"><strong>07 / 02 / 2025 : Home Page (with waves)</strong></p>
+
+<p align="center"><img src="screenshots/09-15-2025.png" alt="09-15-2025"width="100%"/></p>
+<p align="center"><strong>09 / 15 / 2025 : Home Page (with waves)</strong></p>
