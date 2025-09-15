@@ -39,8 +39,7 @@
 </script>
 
 <section id ="hero" class="h-screen flex flex-col overflow-hidden" style="background: linear-gradient(var(--sky-bg) 0%, var(--sky-bg) 40%, var(--sky-grad) 100%); color: var(--white)">
-{#if open}
-{#key $currentTheme} <!-- rebuilds block when $currentTheme changes -->
+{#key $currentTheme+''+open} <!-- rebuilds block when $currentTheme changes -->
 <header class="w-full md:px-12 py-8 fixed top-0 left-0 flex items-center justify-between" in:fade={{ duration: 1500 }}>
     <button on:click={() => location.href = '/'} class="w-12 h-12 text-[var(--white)] hover:text-[var(--hover)] transition-colors duration-300 cursor-pointer" aria-label = "logo">
         <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
@@ -50,7 +49,7 @@
     </button>
 
     <nav class="flex justify-center space-x-4 md:space-x-10 text-2xl font-regular">
-        <a href="#about-me"
+        <a href="#about"
             class="min-w-[10ch] text-center rounded-full px-4 py-2 
                     border-2 border-transparent
                     transition-all duration-500
@@ -128,8 +127,7 @@
             <div in:fly={{ y: 500, duration: 500, delay: 800 }}>
                 <div class="absolute top-0 h-full animate-wave-horizontal-right z-0 left-1/2 -translate-x-1/2">
                     <svg class="h-[191px] -ml-[132px]  text-[var(--bg-one)] animate-wave-vertical-up" viewBox={`0 0 ${viewBoxWidth} 191`} preserveAspectRatio="none">
-                    {#each Array(numWaves) as _, i} <path stroke="currentColor" stroke-width="3" vector-effect="non-scaling-stroke" d={`M${i * 132 + 132} 334.357H${i * 132}V0C${i * 132 + 13.0986} 15.278 ${i * 132 + 37.7486} 25.5732 ${i * 132 + 66} 25.5732C${i * 132 + 94.2514} 25.5732 ${i * 132 + 118.901} 15.278 ${i * 132 + 132} 0V334.357Z`} fill="currentColor"
-                    /> {/each}
+                    {#each Array(numWaves) as _, i} <path stroke="currentColor" stroke-width="3" vector-effect="non-scaling-stroke" d={`M${i * 132 + 132} 334.357H${i * 132}V0C${i * 132 + 13.0986} 15.278 ${i * 132 + 37.7486} 25.5732 ${i * 132 + 66} 25.5732C${i * 132 + 94.2514} 25.5732 ${i * 132 + 118.901} 15.278 ${i * 132 + 132} 0V334.357Z`} fill="currentColor"/> {/each}
                     </svg>
                 </div>
             </div>
@@ -152,7 +150,6 @@
         </div>
     {/if}
 {/key}
-{/if}
 </section>
 
 <style>
