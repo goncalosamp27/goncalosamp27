@@ -1,7 +1,9 @@
 <script lang="ts">
-  import HeroSection from '$lib/components/HeroSection.svelte';
+  import Hero from '$lib/components/Hero.svelte';
+  import About from '$lib/components/About.svelte';
 </script>
 
 <main>
-  <HeroSection/>
+  <Hero/>
+  <About/>
 </main>
