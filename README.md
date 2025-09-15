@@ -20,3 +20,6 @@ After studying web technologies and experimenting with several different languag
 ## Screenshots
 <p align="center"><img src="screenshots/06-24-2025.png" alt="06-24-2025"width="100%"/></p>
 <p align="center"><strong>06 / 24 / 2025 : Home Page</strong></p>
+
+<p align="center"><img src="screenshots/07-02-2025.gif" alt="07-02-2025"width="100%"/></p>
+<p align="center"><strong>06 / 24 / 2025 : Home Page (with waves)</strong></p>
