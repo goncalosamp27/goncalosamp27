@@ -11,7 +11,7 @@
       }
     };
 
-    applyTheme('ocean');
+    applyTheme('day');
     currentTheme.subscribe(applyTheme);
   });
 </script>

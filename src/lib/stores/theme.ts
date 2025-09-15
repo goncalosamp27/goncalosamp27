@@ -1,7 +1,7 @@
 import { writable } from 'svelte/store';
 
 export const themes = {
-  ocean: {
+  day: {
     '--sky-bg': '#489EFF',
     '--sky-grad': '#FFC28C',
     '--hover': '#FFDDBF',
@@ -9,7 +9,7 @@ export const themes = {
     '--bg-two': '#2F5792',
     '--bg-three': '#1A3656',
   },
-  candy: { // for testing
+  night: { // for testing
     '--sky-bg': '#FF6EC7',
     '--sky-grad': '#FFD93D',
     '--hover': '#FF9CEE',
@@ -20,4 +20,4 @@ export const themes = {
 };
 
 export type ThemeName = keyof typeof themes;
-export const currentTheme = writable<ThemeName>('ocean');
+export const currentTheme = writable<ThemeName>('day');
