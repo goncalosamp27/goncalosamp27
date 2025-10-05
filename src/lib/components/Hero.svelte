@@ -40,13 +40,13 @@
 
 <section id ="hero" class="h-screen flex flex-col overflow-hidden" style="background: linear-gradient(var(--sky-bg) 0%, var(--sky-bg) 40%, var(--sky-grad) 100%); color: var(--white)">
 {#key $currentTheme+''+open} <!-- rebuilds block when $currentTheme changes -->
-<header class="w-full md:px-12 py-8 fixed top-0 left-0 flex items-center justify-between" in:fade={{ duration: 1500 }}>
-    <button on:click={() => location.href = '/'} class="w-12 h-12 text-[var(--white)] hover:text-[var(--hover)] transition-colors duration-300 cursor-pointer" aria-label = "logo">
+<header class="w-full md:px-12 py-8 fixed top-0 left-0 flex items-center justify-between z-4 bg-gradient-to-b from-black/30 to-black/0 backdrop-blur-xs" in:fade={{ duration: 1500 }}>
+    <a href="#hero"class="w-12 h-12 text-[var(--white)] hover:text-[var(--hover)] transition-colors duration-300 cursor-pointer" aria-label = "logo">
         <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
             <path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M31.9646 0L39.674 13.353L54.5671 9.36241L50.5765 24.2554L63.9292 31.9645L50.5765 39.6737L54.5672 54.5671L39.6739 50.5764L31.9647 63.9292L24.2554 50.5763L9.36203 54.567L13.3527 39.6737L0 31.9646L13.3529 24.2553L9.36229 9.36217L24.2554 13.3528L31.9646 0ZM31.8661 50.3147C41.946 50.3147 50.1174 42.1433 50.1174 32.0633C50.1174 21.9833 41.946 13.8119 31.8661 13.8119C21.7861 13.8119 13.6147 21.9833 13.6147 32.0633C13.6147 42.1433 21.7861 50.3147 31.8661 50.3147Z"/>
             <circle cx="32" cy="32" r="14" fill="currentColor"/>
         </svg>
-    </button>
+    </a>
 
     <nav class="flex justify-center space-x-4 md:space-x-10 text-2xl font-regular">
         <a href="#about"
@@ -94,8 +94,7 @@
                 out:slide={{ duration: 200 }}>
                 <button type="button" class="w-12 h-12 text-[var(--hover)] hover:text-[var(--hover)] transition-colors duration-300 cursor-pointer" on:click={toggleModeMenu} aria-label="theme-menu">
                     <!-- add more theme svgs here, class should be invisible tho -->
-                    {#if $currentTheme === 'day'}<svg viewBox="0 0 64 64" class="invisible w-full h-full"></svg>{/if} 
-                    {#if $currentTheme === 'night'}<svg viewBox="0 0 64 64" class="invisible w-full h-full"></svg>{/if}
+                    <svg viewBox="0 0 64 64" class="invisible w-full h-full"></svg>
                 </button>
                 
                 {#if $currentTheme !== 'day'}
@@ -113,6 +112,7 @@
         {/if}
     </div>
 </header>
+
 
 <div class="flex-1 flex items-center justify-center">
     <h1 class="text-8xl mt-32 font-bold title text-center " in:fly={{ y: -50, duration: 2500}}>
@@ -133,7 +133,7 @@
             </div>
 
             <div in:fly={{ y: 500, duration: 500, delay: 400 }}>
-                <div class="absolute top-[40px] h-full animate-wave-horizontal-left z-10 left-1/2 -translate-x-1/2">
+                <div class="absolute top-[40px] h-full animate-wave-horizontal-left z-1 left-1/2 -translate-x-1/2">
                     <svg class="-mr-[132px] h-[191px] text-[var(--bg-two)] animate-wave-vertical-down" viewBox={`0 0 ${viewBoxWidth} 191`} preserveAspectRatio="none">
                     {#each Array(numWaves + 1) as _, i} <path stroke="currentColor" stroke-width="3" vector-effect="non-scaling-stroke" d={`M${i * 132 + 66} 334.357H${i * 132 - 66}V0 C${i * 132 - 66 + 13.0986} 15.278 ${i * 132 - 66 + 37.7486} 25.5732 ${i * 132 - 66 + 66} 25.5732 C${i * 132 - 66 + 94.2514} 25.5732 ${i * 132 - 66 + 118.901} 15.278 ${i * 132 - 66 + 132} 0 V334.357Z`} fill="currentColor"/> {/each}
                     </svg>
@@ -141,7 +141,7 @@
             </div>
 
             <div in:fly={{ y: 500, duration: 500, delay: 0 }}>
-                <div class="absolute top-[120px] h-full animate-wave-horizontal-right z-20 left-1/2 -translate-x-1/2">
+                <div class="absolute top-[120px] h-full animate-wave-horizontal-right z-2 left-1/2 -translate-x-1/2">
                     <svg class="-ml-[132px] h-[191px] text-[var(--bg-three)] animate-wave-vertical-up" viewBox={`0 0 ${viewBoxWidth} 191`} preserveAspectRatio="none">
                     {#each Array(numWaves) as _, i} <path stroke="currentColor" stroke-width="3" vector-effect="non-scaling-stroke" d={`M${i * 132 + 132} 334.357H${i * 132}V0C${i * 132 + 13.0986} 15.278 ${i * 132 + 37.7486} 25.5732 ${i * 132 + 66} 25.5732C${i * 132 + 94.2514} 25.5732 ${i * 132 + 118.901} 15.278 ${i * 132 + 132} 0V334.357Z`} fill="currentColor"/> {/each}
                     </svg>
