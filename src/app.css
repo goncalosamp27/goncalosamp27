@@ -5,9 +5,7 @@
   --white: #EFEFEF;
 }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: auto; }
 
 .title {
   text-shadow:

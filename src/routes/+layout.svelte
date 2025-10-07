@@ -1,6 +1,6 @@
 <script lang="ts">
   import { currentTheme, themes } from '$lib/stores/theme';
-   import '../app.css';
+  import '../app.css';
   import { onMount } from 'svelte';
 
   onMount(() => {
