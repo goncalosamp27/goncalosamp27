@@ -40,7 +40,7 @@
 
 <section id ="hero" class="h-screen flex flex-col overflow-hidden" style="background: linear-gradient(var(--sky-bg) 0%, var(--sky-bg) 40%, var(--sky-grad) 100%); color: var(--white)">
 {#key $currentTheme+''+open} <!-- rebuilds block when $currentTheme changes -->
-<header class="w-full md:px-12 py-8 fixed top-0 left-0 flex items-center justify-between z-4 bg-gradient-to-b from-black/30 to-black/0 backdrop-blur-xs" in:fade={{ duration: 1500 }}>
+<header class="w-full -mt-2 md:px-12 py-8 fixed top-0 left-0 flex items-center justify-between z-4 bg-gradient-to-b from-black/30 to-black/0 " in:fade={{ duration: 1500 }}>
     <a href="#hero"class="w-12 h-12 text-[var(--white)] hover:text-[var(--hover)] transition-colors duration-300 cursor-pointer" aria-label = "logo">
         <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
             <path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M31.9646 0L39.674 13.353L54.5671 9.36241L50.5765 24.2554L63.9292 31.9645L50.5765 39.6737L54.5672 54.5671L39.6739 50.5764L31.9647 63.9292L24.2554 50.5763L9.36203 54.567L13.3527 39.6737L0 31.9646L13.3529 24.2553L9.36229 9.36217L24.2554 13.3528L31.9646 0ZM31.8661 50.3147C41.946 50.3147 50.1174 42.1433 50.1174 32.0633C50.1174 21.9833 41.946 13.8119 31.8661 13.8119C21.7861 13.8119 13.6147 21.9833 13.6147 32.0633C13.6147 42.1433 21.7861 50.3147 31.8661 50.3147Z"/>

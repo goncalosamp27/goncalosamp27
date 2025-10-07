@@ -1,17 +1,12 @@
 <section id="about" class="min-h-screen flex items-center justify-center overflow-hidden" style="background-color: var(--bg-three)">
-    <div class="w-[90%] min-h-[75vh] max-w-6xl mx-auto mt-20 rounded-3xl border-[3px] border-[var(--hover)] shadow-lg/50 bg-black/20 backdrop-blur-md grid grid-cols-1 md:grid-cols-2 gap-8 p-6 md:p-10">
-        <div class="flex flex-col items-center text-center gap-6 md:gap-8">
-            <div class="relative min-w-[80%] min-h-[50vh] rounded-2xl border-3 border-[var(--hover)] shadow-lg/0 overflow-hidden">
-                <img src="/pfp.png" alt="profile" class="absolute inset-0 w-full h-full" style="object-fit: cover;"/>
-            </div>
+    <div class="w-[55%] max-w-5xl mx-auto mt-20 rounded-3xl border-[3px] border-[var(--hover)] shadow-lg/50 bg-black/20 backdrop-blur-md grid grid-cols-1 md:grid-cols-2 gap-8 p-6 md:p-8">
+        <div class="flex flex-col items-center text-center gap-6 md:gap-6">
+            <img src="/pfp.png" alt="profile" class="block w-full max-w-[300px] aspect-[4/5] max-h-[320px] object-cover object-center rounded-2xl border-[3px] border-[var(--hover)]"/>
 
-            <h1 class="font-semibold text-[clamp(1.75rem,2.5vw,3rem)]" style="color: var(--hover)">
-                Gonçalo Sampaio
-            </h1>
-
-            <nav class="w-[90%] max-w-3xl mx-auto flex flex-wrap items-center justify-evenly text-[var(--white)]">
+            <h1 class="font-semibold text-[clamp(1.3rem,2.4vw,3rem)]" style="color: var(--hover)">Gonçalo Sampaio</h1>
+            <nav class="w-[90%] mx-auto flex flex-wrap items-center justify-evenly text-[var(--white)]">
                 <a href="https://www.instagram.com/goncalosampa27/" target="_blank"
-                    class="w-18 h-18 hover:text-[var(--hover)] transition-colors rounded focus:outline-none focus:ring-2 focus:ring-[var(--hover)]"
+                    class="w-12 h-12 hover:text-[var(--hover)] transition-colors rounded focus:outline-none focus:ring-2 focus:ring-[var(--hover)]"
                     aria-label="Instagram">
                     <svg viewBox="0 0 64 64" class="w-full h-full" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M47.5004 13.2143C50.4589 13.2145 52.8569 15.6132 52.8569 18.5717V46.4282C52.8569 49.3867 50.4589 51.7853 47.5004 51.7856H18.5717C15.613 51.7856 13.2143 49.3868 13.2143 46.4282V18.5717C13.2143 15.613 15.613 13.2143 18.5717 13.2143H47.5004ZM32.5571 24.0004C26.1766 24.0007 21.0007 29.1766 21.0004 35.5571C21.0004 41.9378 26.1764 47.1144 32.5571 47.1147C38.9379 47.1147 44.1147 41.9379 44.1147 35.5571C44.1144 29.1764 38.9378 24.0004 32.5571 24.0004ZM45.4086 15.9994C43.4315 15.9994 41.817 17.6024 41.8168 19.5912C41.8168 21.5685 43.4197 23.183 45.4086 23.183C47.3856 23.1828 49.0004 21.58 49.0004 19.5912C49.0003 17.6143 47.3856 15.9997 45.4086 15.9994Z" fill="currentColor"/>
@@ -20,7 +15,7 @@
                 </a>
 
                 <a href="https://github.com/goncalosamp27" target="_blank"
-                    class="w-18 h-18 hover:text-[var(--hover)] transition-colors rounded focus:outline-none focus:ring-2 focus:ring-[var(--hover)]"
+                    class="w-12 h-12 hover:text-[var(--hover)] transition-colors rounded focus:outline-none focus:ring-2 focus:ring-[var(--hover)]"
                     aria-label="GitHub">
                     <svg viewBox="0 0 64 64" class="w-full h-full" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M32.5186 10C20.0664 10 10 20.1406 10 32.6859C10 42.7141 16.4499 51.2027 25.3976 54.2071C26.5163 54.4329 26.9261 53.719 26.9261 53.1184C26.9261 52.5924 26.8892 50.7897 26.8892 48.9114C20.6251 50.2638 19.3206 46.2071 19.3206 46.2071C18.3139 43.5779 16.8223 42.9021 16.8223 42.9021C14.7721 41.5124 16.9717 41.5124 16.9717 41.5124C19.2459 41.6627 20.4393 43.8411 20.4393 43.8411C22.4522 47.2963 25.6958 46.32 27.0007 45.7189C27.187 44.2541 27.7839 43.24 28.4177 42.6767C23.4216 42.1508 18.165 40.1978 18.165 31.4838C18.165 29.0049 19.0593 26.9768 20.4762 25.3994C20.2526 24.8362 19.4695 22.5071 20.7002 19.3897C20.7002 19.3897 22.6016 18.7887 26.8887 21.7184C28.7242 21.2218 30.6171 20.9692 32.5186 20.9671C34.42 20.9671 36.3582 21.2303 38.148 21.7184C42.4357 18.7887 44.337 19.3897 44.337 19.3897C45.5677 22.5071 44.7842 24.8362 44.5606 25.3994C46.0149 26.9768 46.8722 29.0049 46.8722 31.4838C46.8722 40.1978 41.6157 42.113 36.5822 42.6767C37.4027 43.3903 38.1107 44.7422 38.1107 46.8833C38.1107 49.9254 38.0738 52.367 38.0738 53.1179C38.0738 53.719 38.4841 54.4329 39.6023 54.2075C48.55 51.2022 54.9999 42.7141 54.9999 32.6859C55.0368 20.1406 44.9335 10 32.5186 10Z" fill="currentColor"/>
@@ -28,7 +23,7 @@
                 </a>
 
                 <a href="https://www.linkedin.com/in/gonçalo-sampaio27/" target="_blank" 
-                    class="w-18 h-18 hover:text-[var(--hover)] transition-colors rounded focus:outline-none focus:ring-2 focus:ring-[var(--hover)]"
+                    class="w-12 h-12 hover:text-[var(--hover)] transition-colors rounded focus:outline-none focus:ring-2 focus:ring-[var(--hover)]"
                     aria-label="LinkedIn">
                     <svg viewBox="0 0 64 64" class="w-full h-full" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                         <path d="M51.6689 10H13.3223C11.4854 10 10 11.4165 10 13.1677V50.7772C10 52.5284 11.4854 53.9535 13.3223 53.9535H51.6689C53.5059 53.9535 55 52.5284 55 50.7858V13.1677C55 11.4165 53.5059 10 51.6689 10ZM23.3506 47.4549H16.6709V26.474H23.3506V47.4549ZM20.0107 23.6153C17.8662 23.6153 16.1348 21.9241 16.1348 19.838C16.1348 17.752 17.8662 16.0608 20.0107 16.0608C22.1465 16.0608 23.8779 17.752 23.8779 19.838C23.8779 21.9155 22.1465 23.6153 20.0107 23.6153ZM48.3467 47.4549H41.6758V37.2563C41.6758 34.8269 41.6318 31.6935 38.2041 31.6935C34.7324 31.6935 34.2051 34.3461 34.2051 37.0846V47.4549H27.543V26.474H33.9414V29.3413H34.0293C34.917 27.693 37.0967 25.9503 40.3398 25.9503C47.0986 25.9503 48.3467 30.2942 48.3467 35.9429V47.4549Z" fill="currentColor"/>
@@ -36,7 +31,7 @@
                 </a>
 
                 <a href="https://discord.com/users/503227257452494858" target="_blank" 
-                    class="w-18 h-18 hover:text-[var(--hover)] transition-colors rounded focus:outline-none focus:ring-2 focus:ring-[var(--hover)]"
+                    class="w-12 h-12 hover:text-[var(--hover)] transition-colors rounded focus:outline-none focus:ring-2 focus:ring-[var(--hover)]"
                     aria-label="Discord">
                     <svg viewBox="0 0 64 64" class="w-full h-full" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                         <path d="M47.0944 17.7772C44.2263 16.4917 41.1506 15.5447 37.9348 15.0023C37.8762 14.9918 37.8177 15.018 37.7876 15.0703C37.392 15.7575 36.9539 16.6539 36.647 17.3585C33.1883 16.8528 29.7472 16.8528 26.3594 17.3585C26.0525 16.6383 25.5984 15.7575 25.2011 15.0703C25.1709 15.0197 25.1124 14.9936 25.0538 15.0023C21.8398 15.543 18.7642 16.49 15.8943 17.7772C15.8694 17.7876 15.8481 17.8051 15.834 17.8277C10.0001 26.3407 8.40197 34.6445 9.18596 42.8452C9.18951 42.8854 9.21257 42.9237 9.2445 42.9481C13.0935 45.709 16.822 47.3851 20.4811 48.4961C20.5397 48.5136 20.6018 48.4927 20.639 48.4455C21.5046 47.291 22.2762 46.0736 22.9378 44.7934C22.9768 44.7184 22.9395 44.6295 22.8597 44.5998C21.6359 44.1463 20.4705 43.5935 19.3495 42.9656C19.2608 42.915 19.2537 42.7911 19.3353 42.7318C19.5712 42.5592 19.8072 42.3795 20.0324 42.1981C20.0732 42.165 20.13 42.158 20.1779 42.179C27.5424 45.4631 35.5154 45.4631 42.793 42.179C42.841 42.1563 42.8977 42.1633 42.9403 42.1964C43.1656 42.3778 43.4015 42.5592 43.6392 42.7318C43.7207 42.7911 43.7154 42.915 43.6267 42.9656C42.5057 43.6056 41.3404 44.1463 40.1147 44.5981C40.0349 44.6277 39.9994 44.7184 40.0385 44.7934C40.7142 46.0718 41.4858 47.2892 42.3354 48.4438C42.3709 48.4927 42.4347 48.5136 42.4933 48.4961C46.1703 47.3851 49.8987 45.709 53.7477 42.9481C53.7814 42.9237 53.8027 42.8871 53.8062 42.847C54.7445 33.366 52.2347 25.1303 47.1529 17.8295C47.1405 17.8051 47.1192 17.7876 47.0944 17.7772ZM24.0375 37.8518C21.8203 37.8518 19.9934 35.8636 19.9934 33.4218C19.9934 30.98 21.7849 28.9918 24.0375 28.9918C26.3079 28.9918 28.1171 30.9975 28.0816 33.4218C28.0816 35.8636 26.2901 37.8518 24.0375 37.8518ZM38.9902 37.8518C36.773 37.8518 34.946 35.8636 34.946 33.4218C34.946 30.98 36.7375 28.9918 38.9902 28.9918C41.2606 28.9918 43.0698 30.9975 43.0343 33.4218C43.0343 35.8636 41.2606 37.8518 38.9902 37.8518Z" fill="currentColor"/>
@@ -46,11 +41,9 @@
         </div>
 
         <div class="flex flex-col items-center text-center md:gap-6 px-1">
-            <h2 class="font-semibold text-[clamp(2.5rem,3.5vw,4rem)]" style="color: var(--hover)">
-                About me
-            </h2>
+            <h2 class="font-semibold text-[clamp(1.5rem,3vw,3rem)]" style="color: var(--hover)">About me</h2>
 
-            <div class="space-y-3 text-white text-[clamp(1.2rem,1.3vw,1.5rem)] leading-relaxed [text-align:justify] max-w-[70ch]">
+            <div class="space-y-3 text-white text-[16px] md:text-[16px] leading-relaxed [text-align:justify] max-w-[70ch] overflow-auto break-words">
                 <div>
                     Hey, I am Gonçalo, 21 years old, born and raised in Portugal. I consider myself a creative, understanding and fun person, with a strong desire to help others overcoming their challenges and reaching their goals.
                 </div>
