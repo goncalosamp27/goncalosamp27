@@ -38,7 +38,7 @@
         $: viewBoxWidth = (numWaves + 1) * 132;
 </script>
 
-<section id ="hero" class="h-screen flex flex-col overflow-hidden" style="background: linear-gradient(var(--sky-bg) 0%, var(--sky-bg) 40%, var(--sky-grad) 100%); color: var(--white)">
+<section id ="hero" class="h-screen flex flex-col overflow-hidden" style="background: linear-gradient(var(--sky-bg) 0%, var(--sky-bg) 40%, var(--sky-grad) 80%); color: var(--white)">
 {#key $currentTheme+''+open} <!-- rebuilds block when $currentTheme changes -->
 <header class="w-full -mt-2 md:px-12 py-8 fixed top-0 left-0 flex items-center justify-between z-4 bg-gradient-to-b from-black/30 to-black/0 " in:fade={{ duration: 1500 }}>
     <a href="#hero"class="w-12 h-12 text-[var(--white)] hover:text-[var(--hover)] transition-colors duration-300 cursor-pointer" aria-label = "logo">
@@ -123,7 +123,7 @@
 
 <!-- OCEAN theme -> animated waves -->
     {#if ($currentTheme === 'day' || $currentTheme === 'night') && oceanReady}
-        <div class="relative h-[200px] aspect-[1980/160]">
+        <div class="relative h-[150px] aspect-[1980/160]">
             <div in:fly={{ y: 500, duration: 500, delay: 800 }}>
                 <div class="absolute top-0 h-full animate-wave-horizontal-right z-0 left-1/2 -translate-x-1/2">
                     <svg class="h-[191px] -ml-[132px]  text-[var(--bg-one)] animate-wave-vertical-up" viewBox={`0 0 ${viewBoxWidth} 191`} preserveAspectRatio="none">

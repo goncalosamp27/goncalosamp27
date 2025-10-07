@@ -1,5 +1,13 @@
+<script lang="ts"> 
+    import { onMount } from 'svelte';
+    import { fade , fly } from 'svelte/transition';
+    let show = false;
+    onMount(() => show = true);
+</script>
+
 <section id="about" class="min-h-screen flex items-center justify-center overflow-hidden" style="background-color: var(--bg-three)">
-    <div class="w-[55%] max-w-5xl mx-auto mt-20 rounded-3xl border-[3px] border-[var(--hover)] shadow-lg/50 bg-black/20 backdrop-blur-md grid grid-cols-1 md:grid-cols-2 gap-8 p-6 md:p-8">
+    {#if show}
+    <div class="w-[55%] max-w-5xl mx-auto mt-20 rounded-3xl border-[3px] border-[var(--hover)] shadow-lg/50 bg-black/20 backdrop-blur-md grid grid-cols-1 md:grid-cols-2 gap-8 p-6 md:p-8" in:fly={{ y: -30, duration: 1500}}>
         <div class="flex flex-col items-center text-center gap-6 md:gap-6">
             <img src="/pfp.png" alt="profile" class="block w-full max-w-[300px] aspect-[4/5] max-h-[320px] object-cover object-center rounded-2xl border-[3px] border-[var(--hover)]"/>
 
@@ -59,4 +67,5 @@
             </div>
         </div>
     </div>
+    {/if}
 </section>
