@@ -8,7 +8,10 @@
 
     onMount(() => { open = true; });
     
-    function toggleModeMenu () { showThemes = !showThemes; }
+    function toggleModeMenu() {
+        showThemes = !showThemes;
+        if (showThemes) openMobileMenu = false;
+    }
     function switchTo(theme: ThemeName) { 
         currentTheme.set(theme); 
         oceanReady = false;
@@ -36,19 +39,47 @@
         
         $: numWaves = Math.ceil(screenWidth / waveWidth) + 2;
         $: viewBoxWidth = (numWaves + 1) * 132;
+    
+    let openMobileMenu = false;
+    const closeMobileMenu = () => (openMobileMenu = false);
+    function toggleMobileMenu() {
+        openMobileMenu = !openMobileMenu;
+        if (openMobileMenu) showThemes = false;
+    }
 </script>
 
 <section id ="hero" class="h-screen flex flex-col overflow-hidden" style="background: linear-gradient(var(--sky-bg) 0%, var(--sky-bg) 40%, var(--sky-grad) 80%); color: var(--white)">
 {#key $currentTheme+''+open} <!-- rebuilds block when $currentTheme changes -->
 <header class="w-full -mt-2 md:px-12 py-8 fixed top-0 left-0 flex items-center justify-between z-4 bg-gradient-to-b from-black/30 to-black/0 " in:fade={{ duration: 1500 }}>
-    <a href="#hero"class="w-12 h-12 text-[var(--white)] hover:text-[var(--hover)] transition-colors duration-300 cursor-pointer" aria-label = "logo">
+    <a href="#hero"class="hidden md:block w-12 h-12 text-[var(--white)] hover:text-[var(--hover)] transition-colors duration-300 cursor-pointer" aria-label = "logo">
         <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
             <path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M31.9646 0L39.674 13.353L54.5671 9.36241L50.5765 24.2554L63.9292 31.9645L50.5765 39.6737L54.5672 54.5671L39.6739 50.5764L31.9647 63.9292L24.2554 50.5763L9.36203 54.567L13.3527 39.6737L0 31.9646L13.3529 24.2553L9.36229 9.36217L24.2554 13.3528L31.9646 0ZM31.8661 50.3147C41.946 50.3147 50.1174 42.1433 50.1174 32.0633C50.1174 21.9833 41.946 13.8119 31.8661 13.8119C21.7861 13.8119 13.6147 21.9833 13.6147 32.0633C13.6147 42.1433 21.7861 50.3147 31.8661 50.3147Z"/>
             <circle cx="32" cy="32" r="14" fill="currentColor"/>
         </svg>
     </a>
 
-    <nav class="flex justify-center space-x-4 md:space-x-10 text-2xl font-regular">
+     <button
+      class="md:hidden w-12 h-12 inline-flex items-center justify-center rounded-lg border-2 border-transparent text-[var(--white)] 
+      hover:text-[var(--hover)] hover:border-[var(--hover)] transition-colors duration-300 ml-4"
+      aria-label="Open menu"
+      aria-expanded={openMobileMenu}
+      aria-controls="mobile-menu"
+      on:click={toggleMobileMenu}
+    >
+      {#if !openMobileMenu}
+        <!-- menu icon -->
+        <svg viewBox="0 0 24 24" class="w-12 h-12" fill="none" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      {:else}
+        <!-- close icon -->
+        <svg viewBox="0 0 24 24" class="w-12 h-12" fill="none" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" d="M6 6l12 12M18 6l-12 12"/>
+        </svg>
+      {/if}
+    </button>
+
+    <nav class="hidden md:flex justify-center space-x-4 md:space-x-10 text-2xl font-regular">
         <a href="#about"
             class="min-w-[10ch] text-center rounded-full px-4 py-2 
                     border-2 border-transparent
@@ -79,7 +110,7 @@
     </nav>
 
     <!-- Theme Menu -->
-    <div class="relative">
+    <div class="relative mr-4 md:mr-0">
         <button type="button" class="z-1 relative w-12 h-12 text-[var(--white)] hover:text-[var(--hover)] transition-colors duration-300 cursor-pointer" on:click={toggleModeMenu} aria-label="theme-menu">
             <!-- add more theme svgs here -->
             {#if $currentTheme === 'day'}<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full"> <path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M31.9646 0L39.674 13.353L54.5671 9.36241L50.5765 24.2554L63.9292 31.9645L50.5765 39.6737L54.5672 54.5671L39.6739 50.5764L31.9647 63.9292L24.2554 50.5763L9.36203 54.567L13.3527 39.6737L0 31.9646L13.3529 24.2553L9.36229 9.36217L24.2554 13.3528L31.9646 0ZM31.8661 50.3147C41.946 50.3147 50.1174 42.1433 50.1174 32.0633C50.1174 21.9833 41.946 13.8119 31.8661 13.8119C21.7861 13.8119 13.6147 21.9833 13.6147 32.0633C13.6147 42.1433 21.7861 50.3147 31.8661 50.3147Z"/><circle cx="32" cy="32" r="14" fill="currentColor" /></svg>
@@ -88,12 +119,11 @@
             {/if}
         </button>
 
-        {#if showThemes}
-            <div class="z-0 absolute left-1/2 -top-[0.88rem] -translate-x-1/2 flex flex-col items-center space-y-8 border-2 border-[var(--hover)] rounded-xl px-3 py-3 bg-[var(--bg-three)]/20"
+        {#if showThemes} <!-- Desktop -->
+            <div class="z-0 backdrop-blur absolute left-1/2 -top-[0.88rem] -translate-x-1/2 flex flex-col items-center space-y-8 border-2 border-[var(--hover)] rounded-xl px-3 py-3 bg-[var(--bg-three)]/20"
                 in:slide={{ duration: 300 }}
                 out:slide={{ duration: 200 }}>
                 <button type="button" class="w-12 h-12 text-[var(--hover)] hover:text-[var(--hover)] transition-colors duration-300 cursor-pointer" on:click={toggleModeMenu} aria-label="theme-menu">
-                    <!-- add more theme svgs here, class should be invisible tho -->
                     <svg viewBox="0 0 64 64" class="invisible w-full h-full"></svg>
                 </button>
                 
@@ -113,13 +143,25 @@
     </div>
 </header>
 
+{#if openMobileMenu}
+  <div class="fixed inset-0 z-30" on:click={closeMobileMenu}></div>
+  <nav
+    id="mobile-menu"
+    class="fixed top-[5.25rem] left-0 w-full z-40 px-4"
+  >
+    <div class="mx-4 rounded-2xl border-2 border-[var(--hover)] bg-[var(--bg-three)]/20 backdrop-blur p-4 flex flex-col text-xl">
+      <a href="#about" class="px-4 py-3 hover:bg-[var(--bg-two)]/30 hover:text-[var(--hover)] transition"   on:click={closeMobileMenu}>About</a>
+      <a href="#projects" class="px-4 py-3 hover:bg-[var(--bg-two)]/30 hover:text-[var(--hover)] transition"   on:click={closeMobileMenu}>Projects</a>
+      <a href="#contact" class="px-4 py-3 hover:bg-[var(--bg-two)]/30 hover:text-[var(--hover)] transition"   on:click={closeMobileMenu}>Contact</a>
+    </div>
+  </nav>
+{/if}
 
 <div class="flex-1 flex items-center justify-center">
-    <h1 class="text-8xl mt-32 font-bold title text-center " in:fly={{ y: -50, duration: 2500}}>
+    <h1 class="text-7xl md:text-8xl mt-32 font-bold title text-center " in:fly={{ y: -50, duration: 2500}}>
         Gonçalo's World
     </h1>
 </div>
-
 
 <!-- OCEAN theme -> animated waves -->
     {#if ($currentTheme === 'day' || $currentTheme === 'night') && oceanReady}

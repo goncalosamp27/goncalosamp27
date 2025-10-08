@@ -1,17 +1,17 @@
 <script lang="ts"> 
     import { onMount } from 'svelte';
-    import { fade , fly } from 'svelte/transition';
+    import { fly } from 'svelte/transition';
     let show = false;
     onMount(() => show = true);
 </script>
 
 <section id="about" class="min-h-screen flex items-center justify-center overflow-hidden" style="background-color: var(--bg-three)">
     {#if show}
-    <div class="w-[55%] max-w-5xl mx-auto mt-20 rounded-3xl border-[3px] border-[var(--hover)] shadow-lg/50 bg-black/20 backdrop-blur-md grid grid-cols-1 md:grid-cols-2 gap-8 p-6 md:p-8" in:fly={{ y: -30, duration: 1500}}>
+    <div class="w-[90%] md:w-[55%] max-w-5xl mx-auto mt-20 rounded-3xl border-[3px] border-[var(--hover)] shadow-lg/20 bg-black/20 backdrop-blur-md grid grid-cols-1 md:grid-cols-2 gap-8 p-6 md:p-8" in:fly={{ y: -30, duration: 1500}}>
         <div class="flex flex-col items-center text-center gap-6 md:gap-6">
             <img src="/pfp.png" alt="profile" class="block w-full max-w-[300px] aspect-[4/5] max-h-[320px] object-cover object-center rounded-2xl border-[3px] border-[var(--hover)]"/>
 
-            <h1 class="font-semibold text-[clamp(1.3rem,2.4vw,3rem)]" style="color: var(--hover)">Gonçalo Sampaio</h1>
+            <h1 class="font-semibold text-2xl md:text-4xl" style="color: var(--hover)">Gonçalo Sampaio</h1>
             <nav class="w-[90%] mx-auto flex flex-wrap items-center justify-evenly text-[var(--white)]">
                 <a href="https://www.instagram.com/goncalosampa27/" target="_blank"
                     class="w-12 h-12 hover:text-[var(--hover)] transition-colors rounded focus:outline-none focus:ring-2 focus:ring-[var(--hover)]"
@@ -48,8 +48,8 @@
             </nav>
         </div>
 
-        <div class="flex flex-col items-center text-center md:gap-6 px-1">
-            <h2 class="font-semibold text-[clamp(1.5rem,3vw,3rem)]" style="color: var(--hover)">About me</h2>
+        <div class="flex flex-col items-center text-center gap-4 md:gap-6 px-1">
+            <h2 class="font-semibold text-3xl md:text-4xl" style="color: var(--hover)">About me</h2>
 
             <div class="space-y-3 text-white text-[16px] md:text-[16px] leading-relaxed [text-align:justify] max-w-[70ch] overflow-auto break-words">
                 <div>
