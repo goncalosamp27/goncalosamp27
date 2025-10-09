@@ -29,3 +29,6 @@ After studying web technologies and experimenting with several different languag
 
 <p align="center"><img src="screenshots/10-05-2025.png" alt="10-05-2025"width="100%"/></p>
 <p align="center"><strong>09 / 15 / 2025 : About me Section </strong></p>
+
+<p align="center"><img src="screenshots/10-09-2025.png" alt="10-09-2025"width="100%"/></p>
+<p align="center"><strong>09 / 15 / 2025 : Projects Section </strong></p>
