@@ -203,4 +203,13 @@
   .animate-wave-horizontal-left {animation: wave-horizontal-left 3s linear infinite;}
   .animate-wave-vertical-up {animation: wave-vertical-up 3s ease-in-out infinite;}
   .animate-wave-vertical-down {animation: wave-vertical-down 3s ease-in-out infinite;}
+
+  .animate-wave-horizontal-right,
+  .animate-wave-horizontal-left,
+  .animate-wave-vertical-up,
+  .animate-wave-vertical-down {
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
 </style>
