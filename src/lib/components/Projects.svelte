@@ -8,7 +8,7 @@
     const projects = [
         { title: 'Forest on Fire!', 
           description: 'Fun and interactive 3D WEBGL scene where you can pilot a firefighter helicopter to stop a forest fire.', 
-          href: 'https://github.com/goncalosamp27/CG-FEUP', 
+          href: 'https://github.com/goncalosamp27/CG-FEUP/tree/main/project', 
           tags: ['WebGL','JavaScript','GLSL']},
 
         { title: 'SyncIt!', 
@@ -22,7 +22,7 @@
           tags: ['Python','Jupyter Notebook']},
 
         { title: 'Projeto FEUP Submissions', 
-          description: 'Web platform where Projeto FEUP students upload work, manage groups, and indicate participant contributions.', 
+          description: 'Web platform where Projeto FEUP students upload files to be evaluated, manage groups, and indicate participant contributions.', 
           href: 'https://github.com/goncalosamp27/Projeto-Integrador-2425', 
           tags: ['node.js','next.js','React','pgSQL'] },
 
