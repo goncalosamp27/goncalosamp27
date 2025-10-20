@@ -59,7 +59,7 @@
                     My passion for software and modern technologies started really soon, which made me pursue Informatics and Computing Engineering at FEUP where I am currently taking a masters in Software Engineering!
                 </div>
                 <div>
-                    If you want to know more about myself and my experience, you can download my resume here.
+                    If you want to know more about myself and my experience, you can view my resume <a class="hover:text-[var(--hover)]" href="/Goncalo-Sampaio-CV.pdf" target="_blank" rel="noopener noreferrer">here</a>.
                 </div>
                 <div>
                     Enjoy your stay!
