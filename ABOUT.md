@@ -1,4 +1,4 @@
-# Gonçalo's World
+# Personal Website
 
 Hey! My name is Gonçalo and I decided to challenge myself, developing a fun, interactive and good looking website!
 
