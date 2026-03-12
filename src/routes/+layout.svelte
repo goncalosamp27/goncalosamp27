@@ -1,3 +1,7 @@
+<script context="module" lang="ts">
+  export const prerender = true;
+</script>
+
 <script lang="ts">
   import { currentTheme, themes } from '$lib/stores/theme';
   import '../app.css';
