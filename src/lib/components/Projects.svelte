@@ -6,7 +6,7 @@
     onMount(() => show = true);
 
     const projects = [
-        { title: 'Forest on Fire!', 
+        { title: 'Forest on fire', 
           description: 'Fun and interactive 3D WEBGL scene where you can pilot a firefighter helicopter to stop a forest fire.', 
           href: 'https://github.com/goncalosamp27/CG-FEUP/tree/main/project', 
           tags: ['WebGL','JavaScript','GLSL']},
