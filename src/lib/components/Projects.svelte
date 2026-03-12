@@ -56,9 +56,9 @@
           href: 'https://github.com/goncalosamp27/LTW-FEUP', 
           tags: ['HTML','PHP','JavaScript','SQL'] },
 
-        { title: 'Gonçalo\'s World',
+        { title: 'Personal website',
           description: 'Single-Page personal portfolio with a clean, cartoon-style UI.', 
-          href: 'https://github.com/goncalosamp27/goncalos-world', 
+          href: 'https://github.com/goncalosamp27/goncalosamp27', 
           tags: ['Svelte','Tailwind CSS','TypeScript'] },
     ];
 

@@ -159,7 +159,7 @@
 
 <div class="flex-1 flex items-center justify-center">
     <h1 class="text-7xl md:text-8xl mt-32 font-bold title text-center " in:fly={{ y: -50, duration: 2500}}>
-        Gonçalo's World
+        Gonçalo Sampaio
     </h1>
 </div>
 
