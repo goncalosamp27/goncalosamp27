@@ -11,7 +11,7 @@
     {#if show}
     <div class="w-[90%] md:w-[55%] max-w-5xl mx-auto mt-20 rounded-3xl border-[3px] border-[var(--hover)] shadow-lg/20 bg-black/20 backdrop-blur-md grid grid-cols-1 md:grid-cols-2 gap-8 p-6 md:p-8" in:fly={{ y: -30, duration: 1500}}>
         <div class="flex flex-col items-center text-center gap-6 md:gap-6">
-            <img src="{asset}/images/profile.png" alt="Profile" class="block w-full max-w-[300px] aspect-[4/5] max-h-[320px] object-cover object-center rounded-2xl border-[3px] border-[var(--hover)]" style="object-fit: cover"/>
+            <img src={asset('/images/profile.png')} alt="Profile" class="block w-full max-w-[300px] aspect-[4/5] max-h-[320px] object-cover object-center rounded-2xl border-[3px] border-[var(--hover)]" style="object-fit: cover"/>
 
             <h1 class="font-semibold text-2xl md:text-4xl" style="color: var(--hover)">Gonçalo Sampaio</h1>
             <nav class="w-[90%] mx-auto flex flex-wrap items-center justify-evenly text-[var(--white)]">
