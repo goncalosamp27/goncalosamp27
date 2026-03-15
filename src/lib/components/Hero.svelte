@@ -58,7 +58,7 @@
         </svg>
     </a>
 
-     <button
+    <button
       class="md:hidden w-12 h-12 inline-flex items-center justify-center rounded-lg border-2 border-transparent text-[var(--white)] 
       hover:text-[var(--hover)] hover:border-[var(--hover)] transition-colors duration-300 ml-4"
       aria-label="Open menu"
@@ -70,11 +70,6 @@
         <!-- menu icon -->
         <svg viewBox="0 0 24 24" class="w-12 h-12" fill="none" stroke="currentColor" stroke-width="2">
           <path stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16"/>
-        </svg>
-      {:else}
-        <!-- close icon -->
-        <svg viewBox="0 0 24 24" class="w-12 h-12" fill="none" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" d="M6 6l12 12M18 6l-12 12"/>
         </svg>
       {/if}
     </button>
@@ -144,15 +139,48 @@
 </header>
 
 {#if openMobileMenu}
-  <div class="fixed inset-0 z-30" on:click={closeMobileMenu}></div>
   <nav
     id="mobile-menu"
-    class="fixed top-[5.25rem] left-0 w-full z-40 px-4"
+    class="fixed top-[5.25rem] left-0 w-[80%] z-40 px-2 -mt-16"
   >
     <div class="mx-4 rounded-2xl border-2 border-[var(--hover)] bg-[var(--bg-three)]/20 backdrop-blur p-4 flex flex-col text-xl">
-      <a href="#about" class="px-4 py-3 hover:bg-[var(--bg-two)]/30 hover:text-[var(--hover)] transition"   on:click={closeMobileMenu}>About</a>
-      <a href="#projects" class="px-4 py-3 hover:bg-[var(--bg-two)]/30 hover:text-[var(--hover)] transition"   on:click={closeMobileMenu}>Projects</a>
-      <a href="#contact" class="px-4 py-3 hover:bg-[var(--bg-two)]/30 hover:text-[var(--hover)] transition"   on:click={closeMobileMenu}>Contact</a>
+      
+      <div class="flex items-center">
+        <a
+          href="#about"
+          class="flex-1 px-4 py-3 hover:bg-[var(--bg-two)]/30 hover:text-[var(--hover)] transition"
+          on:click={closeMobileMenu}
+        >
+          About
+        </a>
+
+        <button
+          type="button"
+          on:click={closeMobileMenu}
+          aria-label="close-mobile-menu"
+          class="w-10 h-10 inline-flex items-center justify-center rounded-lg text-[var(--white)] hover:text-[var(--hover)] hover:bg-[var(--bg-two)]/30 transition"
+        >
+          <svg viewBox="0 0 24 24" class="w-12 h-12" fill="none" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" d="M6 6l12 12M18 6l-12 12"/>
+          </svg>
+        </button>
+      </div>
+
+      <a
+        href="#projects"
+        class="px-4 py-3 hover:bg-[var(--bg-two)]/30 hover:text-[var(--hover)] transition"
+        on:click={closeMobileMenu}
+      >
+        Projects
+      </a>
+
+      <a
+        href="#contact"
+        class="px-4 py-3 hover:bg-[var(--bg-two)]/30 hover:text-[var(--hover)] transition"
+        on:click={closeMobileMenu}
+      >
+        Contact
+      </a>
     </div>
   </nav>
 {/if}
@@ -165,28 +193,34 @@
 
 <!-- OCEAN theme -> animated waves -->
     {#if ($currentTheme === 'day' || $currentTheme === 'night') && oceanReady}
-        <div class="relative h-[150px] aspect-[1980/160]">
+        <div class="relative w-full h-[200px]">
             <div in:fly={{ y: 500, duration: 500, delay: 800 }}>
-                <div class="absolute top-0 h-full animate-wave-horizontal-right z-0 left-1/2 -translate-x-1/2">
-                    <svg class="h-[191px] -ml-[132px]  text-[var(--bg-one)] animate-wave-vertical-up" viewBox={`0 0 ${viewBoxWidth} 191`} preserveAspectRatio="none">
-                    {#each Array(numWaves) as _, i} <path stroke="currentColor" stroke-width="3" vector-effect="non-scaling-stroke" d={`M${i * 132 + 132} 334.357H${i * 132}V0C${i * 132 + 13.0986} 15.278 ${i * 132 + 37.7486} 25.5732 ${i * 132 + 66} 25.5732C${i * 132 + 94.2514} 25.5732 ${i * 132 + 118.901} 15.278 ${i * 132 + 132} 0V334.357Z`} fill="currentColor"/> {/each}
-                    </svg>
+                <div class="absolute top-0 h-full z-0 left-1/2 -translate-x-1/2">
+                    <div class="animate-wave-horizontal-right">
+                        <svg class="h-[191px] -ml-[132px] text-[var(--bg-one)] animate-wave-vertical-up" viewBox={`0 0 ${viewBoxWidth} 191`} preserveAspectRatio="none">
+                        {#each Array(numWaves) as _, i} <path stroke="currentColor" stroke-width="3" vector-effect="non-scaling-stroke" d={`M${i * 132 + 132} 334.357H${i * 132}V0C${i * 132 + 13.0986} 15.278 ${i * 132 + 37.7486} 25.5732 ${i * 132 + 66} 25.5732C${i * 132 + 94.2514} 25.5732 ${i * 132 + 118.901} 15.278 ${i * 132 + 132} 0V334.357Z`} fill="currentColor"/> {/each}
+                        </svg>
+                    </div>
                 </div>
             </div>
 
             <div in:fly={{ y: 500, duration: 500, delay: 400 }}>
-                <div class="absolute top-[40px] h-full animate-wave-horizontal-left z-1 left-1/2 -translate-x-1/2">
-                    <svg class="-mr-[132px] h-[191px] text-[var(--bg-two)] animate-wave-vertical-down" viewBox={`0 0 ${viewBoxWidth} 191`} preserveAspectRatio="none">
-                    {#each Array(numWaves + 1) as _, i} <path stroke="currentColor" stroke-width="3" vector-effect="non-scaling-stroke" d={`M${i * 132 + 66} 334.357H${i * 132 - 66}V0 C${i * 132 - 66 + 13.0986} 15.278 ${i * 132 - 66 + 37.7486} 25.5732 ${i * 132 - 66 + 66} 25.5732 C${i * 132 - 66 + 94.2514} 25.5732 ${i * 132 - 66 + 118.901} 15.278 ${i * 132 - 66 + 132} 0 V334.357Z`} fill="currentColor"/> {/each}
-                    </svg>
+                <div class="absolute top-[40px] h-full z-1 left-1/2 -translate-x-1/2">
+                    <div class="animate-wave-horizontal-left">
+                        <svg class="-mr-[132px] h-[191px] text-[var(--bg-two)] animate-wave-vertical-down" viewBox={`0 0 ${viewBoxWidth} 191`} preserveAspectRatio="none">
+                        {#each Array(numWaves + 1) as _, i} <path stroke="currentColor" stroke-width="3" vector-effect="non-scaling-stroke" d={`M${i * 132 + 66} 334.357H${i * 132 - 66}V0 C${i * 132 - 66 + 13.0986} 15.278 ${i * 132 - 66 + 37.7486} 25.5732 ${i * 132 - 66 + 66} 25.5732 C${i * 132 - 66 + 94.2514} 25.5732 ${i * 132 - 66 + 118.901} 15.278 ${i * 132 - 66 + 132} 0 V334.357Z`} fill="currentColor"/> {/each}
+                        </svg>
+                    </div>
                 </div>
             </div>
 
-            <div in:fly={{ y: 500, duration: 500, delay: 0 }}>
-                <div class="absolute top-[120px] h-full animate-wave-horizontal-right z-2 left-1/2 -translate-x-1/2">
-                    <svg class="-ml-[132px] h-[191px] text-[var(--bg-three)] animate-wave-vertical-up" viewBox={`0 0 ${viewBoxWidth} 191`} preserveAspectRatio="none">
-                    {#each Array(numWaves) as _, i} <path stroke="currentColor" stroke-width="3" vector-effect="non-scaling-stroke" d={`M${i * 132 + 132} 334.357H${i * 132}V0C${i * 132 + 13.0986} 15.278 ${i * 132 + 37.7486} 25.5732 ${i * 132 + 66} 25.5732C${i * 132 + 94.2514} 25.5732 ${i * 132 + 118.901} 15.278 ${i * 132 + 132} 0V334.357Z`} fill="currentColor"/> {/each}
-                    </svg>
+            <div>
+                <div class="absolute top-[120px] h-full z-2 left-1/2 -translate-x-1/2">
+                    <div class="animate-wave-horizontal-right">
+                        <svg class="-ml-[132px] h-[191px] text-[var(--bg-three)] animate-wave-vertical-up" viewBox={`0 0 ${viewBoxWidth} 191`} preserveAspectRatio="none">
+                        {#each Array(numWaves) as _, i} <path stroke="currentColor" stroke-width="3" vector-effect="non-scaling-stroke" d={`M${i * 132 + 132} 334.357H${i * 132}V0C${i * 132 + 13.0986} 15.278 ${i * 132 + 37.7486} 25.5732 ${i * 132 + 66} 25.5732C${i * 132 + 94.2514} 25.5732 ${i * 132 + 118.901} 15.278 ${i * 132 + 132} 0V334.357Z`} fill="currentColor"/> {/each}
+                        </svg>
+                    </div>
                 </div>
             </div>
         </div>
@@ -195,12 +229,19 @@
 </section>
 
 <style>
-  @keyframes wave-horizontal-right {0% {transform: translateX(0);} 100% {transform: translateX(132px);}}
-  @keyframes wave-horizontal-left {0% {transform: translateX(0);} 100% {transform: translateX(-132px);}}
-  @keyframes wave-vertical-up {0%, 100% {transform: translateY(0);} 50% {transform: translateY(-30px);}}
-  @keyframes wave-vertical-down {0%, 100% {transform: translateY(0);} 50% {transform: translateY(10px);}}
-  .animate-wave-horizontal-right {animation: wave-horizontal-right 3s linear infinite;}
-  .animate-wave-horizontal-left {animation: wave-horizontal-left 3s linear infinite;}
-  .animate-wave-vertical-up {animation: wave-vertical-up 3s ease-in-out infinite;}
-  .animate-wave-vertical-down {animation: wave-vertical-down 3s ease-in-out infinite;}
+    @keyframes wave-horizontal-right {0% {transform: translate3d(0, 0, 0);} 100% {transform: translate3d(132px, 0, 0);}}
+    @keyframes wave-horizontal-left {0% {transform: translate3d(0, 0, 0);} 100% {transform: translate3d(-132px, 0, 0);}}
+    @keyframes wave-vertical-up {0%, 100% {transform: translate3d(0, 0, 0);} 50% {transform: translate3d(0, -30px, 0);}}
+    @keyframes wave-vertical-down {0%, 100% {transform: translate3d(0, 0, 0);} 50% {transform: translate3d(0, 10px, 0);}}
+    .animate-wave-horizontal-right {animation: wave-horizontal-right 3s linear infinite;}
+    .animate-wave-horizontal-left {animation: wave-horizontal-left 3s linear infinite;}
+    .animate-wave-vertical-up {animation: wave-vertical-up 3s ease-in-out infinite;}
+    .animate-wave-vertical-down {animation: wave-vertical-down 3s ease-in-out infinite;}
+    .animate-wave-horizontal-right,
+    .animate-wave-horizontal-left,
+    .animate-wave-vertical-up,
+    .animate-wave-vertical-down {
+        will-change: transform;
+        backface-visibility: hidden;
+    }
 </style>
