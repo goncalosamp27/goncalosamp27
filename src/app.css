@@ -5,7 +5,10 @@
   --white: #EFEFEF;
 }
 
-html { scroll-behavior: auto; }
+html { 
+  scroll-behavior: auto; 
+  background-color: var(--bg-three);
+}
 
 .title {
   text-shadow:
