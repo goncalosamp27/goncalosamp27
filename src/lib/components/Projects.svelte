@@ -72,7 +72,7 @@
     const go = (i : number) => page = i;
 </script>
 
-<section id="projects" class="min-h-screen flex items-center justify-center overflow-hidden" style="background-color: var(--bg-three)">
+<section id="projects" class="min-h-screen flex items-center justify-center overflow-hidden" style="background-color: var(--background)">
   {#if show}
     
     <div class="w-full max-w-6xl px-4 md:px-6 mt-20"in:fly={{ y: -30, duration: 1500}}>
@@ -96,10 +96,10 @@
               <button
                 class="min-w-9 px-3 py-2 rounded-lg border text-sm transition
                       [color:var(--hover)]
-                      hover:bg-[var(--bg-two)]
+                      hover:bg-[var(--hover)]/10
                       data-[active=true]:bg-[var(--hover)]
                       data-[active=true]:border-[var(--hover)]
-                      data-[active=true]:[color:[var(--bg-three)]]"
+                      data-[active=true]:[color:[var(--background)]]"
                 data-active={page === i}
                 aria-current={page === i ? 'page' : undefined}
                 on:click={() => go(i)}
