@@ -20,7 +20,18 @@
         behavior: 'smooth'
         });
     }
+
+    // Mobile Menu
+    let openMobileMenu = false;
+    const closeMobileMenu = () => (
+        openMobileMenu = false
+    );
+    function toggleMobileMenu() {
+        openMobileMenu = !openMobileMenu;
+        if (openMobileMenu) showThemes = false;
+    }
     
+    // Theme Menu
     function toggleModeMenu() {
         showThemes = !showThemes;
         if (showThemes) openMobileMenu = false;
@@ -52,13 +63,6 @@
         
         $: numWaves = Math.ceil(screenWidth / waveWidth) + 2;
         $: viewBoxWidth = (numWaves + 1) * 132;
-    
-    let openMobileMenu = false;
-    const closeMobileMenu = () => (openMobileMenu = false);
-    function toggleMobileMenu() {
-        openMobileMenu = !openMobileMenu;
-        if (openMobileMenu) showThemes = false;
-    }
 </script>
 
 <section
