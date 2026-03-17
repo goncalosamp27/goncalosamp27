@@ -63,6 +63,22 @@
         
         $: numWaves = Math.ceil(screenWidth / waveWidth) + 2;
         $: viewBoxWidth = (numWaves + 1) * 132;
+
+    // Parallax
+    let scrollY = 0;
+
+    function handleScroll() {
+        scrollY = window.scrollY;
+    }
+
+    onMount(() => {
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        handleScroll();
+
+        return () => {
+        window.removeEventListener('scroll', handleScroll);
+        };
+    });
 </script>
 
 <section
@@ -103,7 +119,8 @@
                     transition-all duration-500
                     hover:border-[var(--hover)] 
                     hover:text-[var(--hover)]
-                    hover:bg-[var(--background)]/20">
+                    hover:bg-[var(--background)]/20
+                    hover:backdrop-blur">
             About
         </a>
         <a href="#projects"
@@ -113,7 +130,8 @@
                     transition-all duration-500
                     hover:border-[var(--hover)] 
                     hover:text-[var(--hover)]
-                    hover:bg-[var(--background)]/20">
+                    hover:bg-[var(--background)]/20
+                    hover:backdrop-blur">
             Projects
         </a>
         <a href="#contact"
@@ -123,7 +141,8 @@
                     transition-all duration-500
                     hover:border-[var(--hover)] 
                     hover:text-[var(--hover)]
-                    hover:bg-[var(--background)]/20">
+                    hover:bg-[var(--background)]/20
+                    hover:backdrop-blur">
             Contact
         </a>
     </nav>
@@ -215,7 +234,10 @@
   </nav>
 {/if}
 
-<div class="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
+<div
+    class="absolute inset-0 z-0 flex items-center justify-center pointer-events-none"
+    style={`transform: translateY(${Math.min(scrollY * 0.6,500)}px); will-change: transform;`}
+>
     <h1
         class="text-7xl md:text-8xl font-bold title text-center"
         in:fly={{ y: -50, duration: 2500 }}

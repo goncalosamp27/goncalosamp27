@@ -3,6 +3,7 @@
   import About from '$lib/components/About.svelte';
   import Projects from '$lib/components/Projects.svelte';
   import Contact from '$lib/components/Contact.svelte';
+  import ParallaxTest from '$lib/components/ParallaxTest.svelte';
 </script>
 
 <main>
@@ -10,4 +11,5 @@
   <About/>
   <Projects/>
   <Contact/>
+  <ParallaxTest/>
 </main>
