@@ -235,8 +235,12 @@
 {/if}
 
 <div
-    class="absolute inset-0 z-2 flex items-center justify-center pointer-events-none"
-    style={`transform: translateY(${Math.min(scrollY * 1,300)}px); will-change: transform;`}
+    class="absolute inset-0 z-[2] flex items-center justify-center pointer-events-none"
+    style={`transform: ${
+        ($currentTheme === 'day' || $currentTheme === 'night')
+            ? `translateY(${Math.min(scrollY * 1, 500)}px)`
+            : 'translateY(0px)'
+    }; will-change: transform;`}
 >
     <h1
         class="text-7xl md:text-8xl font-bold title text-center"
@@ -249,9 +253,9 @@
 <!-- OCEAN theme -> animated waves -->
     {#if ($currentTheme === 'day' || $currentTheme === 'night') && oceanReady}
         <div class="absolute bottom-0 left-0 w-full pointer-events-none">
-            <div class="relative w-full h-[170px]">
-                <div in:fly={{ y: 500, duration: 500, delay: 400 }} style={`transform: translateY(${Math.min(scrollY * 0.2,300)}px); will-change: transform;`}>
-                    <div class="absolute top-0 h-full z-0 left-1/2 -translate-x-1/2">
+            <div class="relative w-full h-[200px]">
+                <div in:fly={{ y: 500, duration: 500, delay: 400 }} style={`transform: translateY(${Math.min(scrollY * 0.3,500)}px); will-change: transform;`}>
+                    <div class="absolute top-0 h-full z-[1] left-1/2 -translate-x-1/2">
                         <div class="animate-wave-horizontal-right">
                             <svg class="h-[191px] -ml-[132px] text-[var(--wave)] animate-wave-vertical-up" viewBox={`0 0 ${viewBoxWidth} 191`} preserveAspectRatio="none">
                             {#each Array(numWaves) as _, i} <path stroke="currentColor" stroke-width="3" vector-effect="non-scaling-stroke" d={`M${i * 132 + 132} 334.357H${i * 132}V0C${i * 132 + 13.0986} 15.278 ${i * 132 + 37.7486} 25.5732 ${i * 132 + 66} 25.5732C${i * 132 + 94.2514} 25.5732 ${i * 132 + 118.901} 15.278 ${i * 132 + 132} 0V334.357Z`} fill="currentColor"/> {/each}
@@ -260,8 +264,8 @@
                     </div>
                 </div>
 
-                <div in:fly={{ y: 500, duration: 500}} style={`transform: translateY(${Math.min(scrollY * 0.1,500)}px); will-change: transform;`}>
-                    <div class="absolute top-[40px] h-full z-1 left-1/2 -translate-x-1/2">
+                <div in:fly={{ y: 500, duration: 500}} style={`transform: translateY(${Math.min(scrollY * 0.08,700)}px); will-change: transform;`}>
+                    <div class="absolute top-[70px] h-full z-[1] left-1/2 -translate-x-1/2">
                         <div class="animate-wave-horizontal-left">
                             <svg class="-mr-[132px] h-[191px] text-[var(--wave-two)] animate-wave-vertical-down" viewBox={`0 0 ${viewBoxWidth} 191`} preserveAspectRatio="none">
                             {#each Array(numWaves + 1) as _, i} <path stroke="currentColor" stroke-width="3" vector-effect="non-scaling-stroke" d={`M${i * 132 + 66} 334.357H${i * 132 - 66}V0 C${i * 132 - 66 + 13.0986} 15.278 ${i * 132 - 66 + 37.7486} 25.5732 ${i * 132 - 66 + 66} 25.5732 C${i * 132 - 66 + 94.2514} 25.5732 ${i * 132 - 66 + 118.901} 15.278 ${i * 132 - 66 + 132} 0 V334.357Z`} fill="currentColor"/> {/each}
@@ -270,10 +274,10 @@
                     </div>
                 </div>
 
-                <div style={`transform: translateY(${-Math.min(scrollY * 0.15,500)}px); will-change: transform;`}>
-                    <div class="absolute top-[120px] h-full z-3 left-1/2 -translate-x-1/2">
+                <div>
+                    <div class="absolute top-[150px] h-full z-[3] left-1/2 -translate-x-1/2">
                         <div class="animate-wave-horizontal-right">
-                            <svg class="-ml-[132px] h-[191px] text-[var(--background)] z-3 animate-wave-vertical-up" viewBox={`0 0 ${viewBoxWidth} 191`} preserveAspectRatio="none">
+                            <svg class="-ml-[132px] h-[191px] text-[var(--background)] z-[3] animate-wave-vertical-up" viewBox={`0 0 ${viewBoxWidth} 191`} preserveAspectRatio="none">
                             {#each Array(numWaves) as _, i} <path stroke="currentColor" stroke-width="3" vector-effect="non-scaling-stroke" d={`M${i * 132 + 132} 334.357H${i * 132}V0C${i * 132 + 13.0986} 15.278 ${i * 132 + 37.7486} 25.5732 ${i * 132 + 66} 25.5732C${i * 132 + 94.2514} 25.5732 ${i * 132 + 118.901} 15.278 ${i * 132 + 132} 0V334.357Z`} fill="currentColor"/> {/each}
                             </svg>
                         </div>

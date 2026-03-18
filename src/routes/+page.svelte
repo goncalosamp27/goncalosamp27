@@ -11,5 +11,5 @@
   <About/>
   <Projects/>
   <Contact/>
-  <ParallaxTest/>
+  <!-- <ParallaxTest/> -->
 </main>
