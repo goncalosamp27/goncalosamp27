@@ -7,7 +7,7 @@
     onMount(() => show = true);
 </script>
 
-<section id="about" class="min-h-screen flex items-center justify-center overflow-hidden" style="background-color: var(--background)">
+<section id="about" class="min-h-screen flex items-center justify-center">
     {#if show}
         <div class="w-[90%] md:w-[55%] max-w-5xl mx-auto mt-20 rounded-3xl border-[3px] border-[var(--contrast)] shadow-lg/20 bg-black/20 backdrop-blur-md grid grid-cols-1 md:grid-cols-2 gap-8 p-6 md:p-8" in:fly={{ y: -30, duration: 1500}}>
             <div class="flex flex-col items-center text-center gap-6 md:gap-6">
