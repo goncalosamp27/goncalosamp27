@@ -11,7 +11,7 @@
     let viewBoxWidth = 0;
 
     $: numWaves = Math.ceil(screenWidth / waveWidth) + 2;
-    $: viewBoxWidth = (numWaves + 1) * 132;
+    $: viewBoxWidth = (numWaves + 1) * waveWidth;
 
     onMount(() => {
         const update = () => {
