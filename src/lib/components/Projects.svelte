@@ -1,5 +1,5 @@
 <script lang="ts">
-    import ProjectCard from '$lib/components/ProjectCard.svelte';
+    import ProjectCard from '$lib/components/layout/ProjectCard.svelte';
     import { onMount } from 'svelte';
     import { fly } from 'svelte/transition';
     let show = false;
