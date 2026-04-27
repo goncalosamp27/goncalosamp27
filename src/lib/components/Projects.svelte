@@ -72,10 +72,10 @@
     const go = (i : number) => page = i;
 </script>
 
-<section id="projects" class="min-h-screen flex items-center justify-center overflow-hidden" style="background-color: var(--background)">
+<section id="projects" class="pt-32 flex items-center justify-center" style="background-color: var(--background)">
   {#if show}
     
-    <div class="w-full max-w-6xl px-4 md:px-6 mt-20"in:fly={{ y: -30, duration: 1500}}>
+    <div class="w-full max-w-6xl px-4 md:px-6"in:fly={{ y: -30, duration: 1500}}>
       <h2 class="text-3xl md:text-3xl font-bold text-center mb-10"
           style="color: var(--hover)">
         Projects I've built / contributed to:
@@ -91,7 +91,7 @@
         </div>
 
         {#if totalPages > 1}
-          <nav class="mt-6 flex items-center justify-center gap-2 mt-7" aria-label="Pagination">
+          <nav class="mt-6 flex items-center justify-center gap-2" aria-label="Pagination">
             {#each Array.from({ length: totalPages }) as _, i}
               <button
                 class="min-w-9 px-3 py-2 rounded-lg border text-sm transition
