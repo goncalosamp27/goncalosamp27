@@ -1,7 +1,3 @@
-<script context="module" lang="ts">
-  export const prerender = true;
-</script>
-
 <script lang="ts">
   import { currentTheme, themes } from '$lib/stores/theme';
   import '../app.css';
@@ -9,7 +5,8 @@
 
   onMount(() => {
     const applyTheme = (themeName: keyof typeof themes) => {
-      const theme = themes[themeName];
+      const theme = themes[themeName] ?? themes.day;
+      
       for (const [key, value] of Object.entries(theme)) {
         document.documentElement.style.setProperty(key, value);
       }
