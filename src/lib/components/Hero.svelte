@@ -3,7 +3,7 @@
     import { currentTheme } from '$lib/stores/theme';
     import { fly } from 'svelte/transition';
     import { onMount } from 'svelte';
-    import OceanHero from './themes/OceanHero.svelte';
+    import OceanHero from './themes/ocean/OceanHero.svelte';
 
     let mounted = false;
 
@@ -56,6 +56,6 @@
 
     <!-- OCEAN theme -> animated waves -->
     {#if ($currentTheme === 'day' || $currentTheme === 'night')}
-        <OceanHero {scrollY}/>
+        <OceanHero {scrollY} theme={$currentTheme}/>
     {/if}
 </section>

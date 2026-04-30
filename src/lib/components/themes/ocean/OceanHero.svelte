@@ -1,8 +1,10 @@
 <script lang="ts">
-    import { fly } from 'svelte/transition';
+    import { fly, scale } from 'svelte/transition';
     import { onMount } from 'svelte';
+    import '$lib/components/themes/ocean/oceanhero.css';
 
     export let scrollY = 0;
+    export let theme = 'day';
 
     const waveWidth = 132;
     let screenWidth = 0;
@@ -32,6 +34,38 @@
 
 {#if oceanReady}
     <div class="absolute bottom-0 left-0 w-full pointer-events-none">
+        <div class="absolute left-1/2 bottom-[10px] -translate-x-1/2 z-0">
+            <div
+                class="absolute left-1/2 bottom-[50px] z-0"
+                style={`
+                    transform:
+                        translateX(-50%)
+                        translateY(${Math.min(scrollY * 1, 350)}px)
+                        scale(${Math.max(1 - scrollY * 0.0008, 0.7)});
+                    will-change: transform;
+                `}
+            >
+                <div 
+                    in:scale={{
+                        start: 0.3,
+                        duration: 2000,
+                        delay: 650,
+                        opacity: 0
+                    }}
+                    class="
+                        w-[260px] h-[260px]
+                        sm:w-[360px] sm:h-[360px]
+                        md:w-[480px] md:h-[480px]
+                        lg:w-[600px] lg:h-[600px]
+                        rounded-full
+                    "
+                    class:bg-[#F2B06F]={theme === 'day'}
+                    class:bg-[#BEBEBE]={theme === 'night'}
+                    class:sun-pulse={theme === 'day'}
+                    class:moon-pulse={theme === 'night'}
+                ></div>
+            </div>
+        </div>
         <div class="relative w-full h-[200px]">
             <div
                 in:fly={{ y: 500, duration: 500, delay: 400 }}
@@ -107,38 +141,3 @@
         </div>
     </div>
 {/if}
-
-<style>
-    @keyframes wave-horizontal-right {
-        0% { transform: translate3d(0, 0, 0); }
-        100% { transform: translate3d(132px, 0, 0); }
-    }
-
-    @keyframes wave-horizontal-left {
-        0% { transform: translate3d(0, 0, 0); }
-        100% { transform: translate3d(-132px, 0, 0); }
-    }
-
-    @keyframes wave-vertical-up {
-        0%, 100% { transform: translate3d(0, 0, 0); }
-        50% { transform: translate3d(0, -30px, 0); }
-    }
-
-    @keyframes wave-vertical-down {
-        0%, 100% { transform: translate3d(0, 0, 0); }
-        50% { transform: translate3d(0, 10px, 0); }
-    }
-
-    .animate-wave-horizontal-right { animation: wave-horizontal-right 3s linear infinite; }
-    .animate-wave-horizontal-left { animation: wave-horizontal-left 3s linear infinite; }
-    .animate-wave-vertical-up { animation: wave-vertical-up 3s ease-in-out infinite; }
-    .animate-wave-vertical-down { animation: wave-vertical-down 3s ease-in-out infinite; }
-
-    .animate-wave-horizontal-right,
-    .animate-wave-horizontal-left,
-    .animate-wave-vertical-up,
-    .animate-wave-vertical-down {
-        will-change: transform;
-        backface-visibility: hidden;
-    }
-</style>
