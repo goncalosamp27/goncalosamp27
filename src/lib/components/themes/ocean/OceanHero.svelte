@@ -2,6 +2,7 @@
     import { fly, scale } from 'svelte/transition';
     import { onMount } from 'svelte';
     import '$lib/components/themes/ocean/oceanhero.css';
+    import Clouds from '$lib/components/themes/ocean/clouds/Clouds.svelte';
 
     export let scrollY = 0;
     export let theme = 'day';
@@ -33,10 +34,11 @@
 </script>
 
 {#if oceanReady}
+    <Clouds {theme} {scrollY} />
     <div class="absolute bottom-0 left-0 w-full pointer-events-none">
         <div class="absolute left-1/2 bottom-[10px] -translate-x-1/2 z-0">
             <div
-                class="absolute left-1/2 bottom-[50px] z-0"
+                class="absolute left-1/2 bottom-[50px]"
                 style={`
                     transform:
                         translateX(-50%)
@@ -71,7 +73,7 @@
                 in:fly={{ y: 500, duration: 500, delay: 400 }}
                 style={`transform: translateY(${Math.min(scrollY * 0.3, 500)}px); will-change: transform;`}
             >
-                <div class="absolute top-0 h-full z-[1] left-1/2 -translate-x-1/2">
+                <div class="absolute top-0 h-full z-[2] left-1/2 -translate-x-1/2">
                     <div class="animate-wave-horizontal-right">
                         <svg
                             class="h-[191px] -ml-[132px] text-[var(--wave)] animate-wave-vertical-up"

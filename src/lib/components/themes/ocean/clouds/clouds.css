@@ -1,0 +1,29 @@
+@keyframes cloud-float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    100% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes cloud-sway-0 {
+    0% {
+        transform: translateX(-50px);
+    }
+
+    100% {
+        transform: translateX(50px);
+    }
+}
+
+@keyframes cloud-sway-1 {
+    0% {
+        transform: translateX(50px);
+    }
+
+    100% {
+        transform: translateX(-50px);
+    }
+}
