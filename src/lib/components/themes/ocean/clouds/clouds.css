@@ -1,0 +1,59 @@
+@keyframes cloud-float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-14px);
+    }
+}
+
+@keyframes cloud-drift-0 {
+    0% {
+        margin-left: -8px;
+    }
+
+    100% {
+        margin-left: 18px;
+    }
+}
+
+@keyframes cloud-drift-1 {
+    0% {
+        margin-left: 12px;
+    }
+
+    100% {
+        margin-left: -16px;
+    }
+}
+
+@keyframes cloud-float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    100% {
+        transform: translateY(-14px);
+    }
+}
+
+@keyframes cloud-sway-0 {
+    0% {
+        transform: translateX(-25px);
+    }
+
+    100% {
+        transform: translateX(25px);
+    }
+}
+
+@keyframes cloud-sway-1 {
+    0% {
+        transform: translateX(30px);
+    }
+
+    100% {
+        transform: translateX(-30px);
+    }
+}
