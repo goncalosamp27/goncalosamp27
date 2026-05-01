@@ -3,6 +3,8 @@
     import { onMount } from 'svelte';
     import '$lib/components/themes/ocean/oceanhero.css';
     import Clouds from '$lib/components/themes/ocean/clouds/Clouds.svelte';
+    import Landscape from './landscape/Landscape.svelte';
+    import SunMoon from './sunmoon/SunMoon.svelte';
 
     export let scrollY = 0;
     export let theme = 'day';
@@ -34,46 +36,17 @@
 </script>
 
 {#if oceanReady}
+<div class="relative w-full h-full overflow-hidden">
     <Clouds {theme} {scrollY} />
+    <Landscape {theme} {scrollY} />
+    <SunMoon {theme} {scrollY} />
     <div class="absolute bottom-0 left-0 w-full pointer-events-none">
-        <div class="absolute left-1/2 bottom-[10px] -translate-x-1/2 z-0">
-            <div
-                class="absolute left-1/2 bottom-[50px]"
-                style={`
-                    transform:
-                        translateX(-50%)
-                        translateY(${Math.min(scrollY * 1, 350)}px)
-                        scale(${Math.max(1 - scrollY * 0.0008, 0.7)});
-                    will-change: transform;
-                `}
-            >
-                <div 
-                    in:scale={{
-                        start: 0.3,
-                        duration: 2000,
-                        delay: 650,
-                        opacity: 0
-                    }}
-                    class="
-                        w-[260px] h-[260px]
-                        sm:w-[360px] sm:h-[360px]
-                        md:w-[480px] md:h-[480px]
-                        lg:w-[600px] lg:h-[600px]
-                        rounded-full
-                    "
-                    class:bg-[#F2B06F]={theme === 'day'}
-                    class:bg-[#BEBEBE]={theme === 'night'}
-                    class:sun-pulse={theme === 'day'}
-                    class:moon-pulse={theme === 'night'}
-                ></div>
-            </div>
-        </div>
         <div class="relative w-full h-[200px]">
             <div
                 in:fly={{ y: 500, duration: 500, delay: 400 }}
                 style={`transform: translateY(${Math.min(scrollY * 0.3, 500)}px); will-change: transform;`}
             >
-                <div class="absolute top-0 h-full z-[2] left-1/2 -translate-x-1/2">
+                <div class="absolute top-0 h-full  left-1/2 -translate-x-1/2">
                     <div class="animate-wave-horizontal-right">
                         <svg
                             class="h-[191px] -ml-[132px] text-[var(--wave)] animate-wave-vertical-up"
@@ -93,12 +66,13 @@
                     </div>
                 </div>
             </div>
-
+            
+            
             <div
                 in:fly={{ y: 500, duration: 500 }}
                 style={`transform: translateY(${Math.min(scrollY * 0.08, 700)}px); will-change: transform;`}
             >
-                <div class="absolute top-[70px] h-full z-[1] left-1/2 -translate-x-1/2">
+                <div class="absolute top-[70px] h-full  left-1/2 -translate-x-1/2">
                     <div class="animate-wave-horizontal-left">
                         <svg
                             class="-mr-[132px] h-[191px] text-[var(--wave-two)] animate-wave-vertical-down"
@@ -118,12 +92,12 @@
                     </div>
                 </div>
             </div>
-
+            
             <div>
                 <div class="absolute top-[150px] h-full z-[3] left-1/2 -translate-x-1/2">
                     <div class="animate-wave-horizontal-right">
                         <svg
-                            class="-ml-[132px] h-[191px] text-[var(--background)] z-[3] animate-wave-vertical-up"
+                            class="-ml-[132px] h-[191px] text-[var(--background)] z-[4] animate-wave-vertical-up"
                             viewBox={`0 0 ${viewBoxWidth} 191`}
                             preserveAspectRatio="none"
                         >
@@ -142,4 +116,5 @@
             </div>
         </div>
     </div>
+</div>
 {/if}

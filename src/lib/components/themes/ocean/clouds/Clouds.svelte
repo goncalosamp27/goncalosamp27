@@ -183,7 +183,7 @@
 
 <svelte:window on:mousemove={handleMouseMove} />
 
-<div class="absolute inset-0 z-[1] pointer-events-none">
+<div class="absolute inset-0 z-[2] pointer-events-none">
     {#each clouds as cloud, i}
         {@const CloudSvg = cloud.component}
         {@const parallaxX = mouseX * (12 + i * 4)}
