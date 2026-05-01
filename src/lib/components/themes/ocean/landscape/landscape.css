@@ -1,0 +1,29 @@
+.landscape-enter {
+    transform: translate(0, 500px);
+    transition: transform 2s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform;
+}
+
+.landscape-enter.entered {
+    transform: translate(-5px, 0);
+}
+
+.landscape-scroll {
+    will-change: transform;
+}
+
+.palm-tree {
+    transform-origin: bottom center;
+}
+
+.palm-trunk {
+    transform-box: fill-box;
+    transform-origin: 50% 100%;
+    animation: palm-trunk-wind 4.8s ease-in-out infinite;
+}
+
+.palm-leaves {
+    transform-box: fill-box;
+    transform-origin: 52% 25%;
+    animation: palm-leaves-wind 10s ease-in-out infinite;
+}
