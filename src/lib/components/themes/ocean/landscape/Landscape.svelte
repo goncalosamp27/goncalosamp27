@@ -6,10 +6,10 @@
     export let theme = 'day';
 
     let entered = false;
-    let scrollExitLeft = 0;
+    let scrollExit = 0;
 
-    $: scrollExitLeft = Math.min(scrollY, 10000);
-    $: scrollScale = Math.max(1 - scrollY * 0.00075, 0.0001);
+    $: scrollExit = Math.min(scrollY, 700);
+    $: scrollScale = Math.max(1 - scrollExit * 0.00075, 0.3);
 
     onMount(() => {
         const timeout = setTimeout(() => {
@@ -23,20 +23,20 @@
 <div class="absolute inset-0  pointer-events-none overflow-hidden">
     <div
         class:entered
-        class="absolute bottom-0 z-[4] lg:flex hidden"
+        class="absolute bottom-0 z-[4] 2xl:flex hidden"
     >
         <div
             class="landscape-scroll origin-bottom-left"
             style={`transform: scale(${scrollScale})`}
         >
-            <div class={`relative w-[550px] bottom-[20px] landscape-enter ${entered ? "entered" : ""}`}>
+            <div class={`relative w-[550px] bottom-[25px] landscape-enter ${entered ? "entered" : ""}`}>
                 <div class="landscape-layer">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 1150 846"
                         fill="none"
                         class="absolute inset-0 w-full h-auto z-[0] layer-shadow"
-                        style={`transform: translateX(-${scrollExitLeft * 1.5}px)`}
+                        style={`transform: translateX(${scrollExit * 1.5}px)`}
                     >
                         <path
                             d="M0 845H779C844.262 845 884.997 774.29 852.259 717.834L787.687 606.481C781.913 596.523 775.073 587.223 767.289 578.743L625.385 424.169C615.822 413.753 607.391 402.351 600.232 390.155L516.5 247.5L493.254 212.203C426.41 110.706 278.114 109.035 209 209L0 491.5V845Z"
@@ -51,7 +51,7 @@
                         viewBox="0 0 1150 846"
                         fill="none"
                         class="absolute inset-0 w-full h-auto z-[1] layer-shadow"
-                        style={`transform: translateX(-${scrollExitLeft * 1}px)`}
+                        style={`transform: translateX(${scrollExit * 1}px)`}
                     >
                         <path
                             d="M0 844.5H1046.5L975.776 595.629C963.854 553.674 919.628 529.861 878.038 543.002C839.604 555.146 798.284 535.749 783.074 498.421L760.641 443.369C733.058 375.679 658.549 340.035 588.537 361.039L458.772 399.968C422.371 410.889 383.145 407.16 349.453 389.578L323.752 376.166C261.389 343.622 184.55 371.787 157.991 436.924C145.847 466.707 122.199 490.329 92.4029 502.439L85.48 505.253C33.8002 526.258 0 576.482 0 632.267V844.5Z"
@@ -66,7 +66,7 @@
                         viewBox="0 0 1150 846"
                         fill="none"
                         class="absolute inset-0 w-full h-auto z-[2] layer-shadow"
-                        style={`transform: translateX(-${scrollExitLeft * 0.6}px)`}
+                        style={`transform: translateX(${scrollExit * 0.6}px)`}
                     >
                         <path
                             d="M0 660.781C0 595.198 62.9739 547.987 125.927 566.375L159.601 576.212C193.217 586.031 228.421 566.703 238.181 533.07C246.75 503.538 275.295 484.43 305.864 487.761L445.295 502.955C471.369 505.797 497.149 495.49 514.077 475.456C544.61 439.322 599.866 438.013 632.076 472.662L668.097 511.41C679.258 523.416 692.658 533.124 707.544 539.988L761.439 564.84C780.364 573.566 800.535 579.281 821.224 581.778L922.5 594C1002.69 609.742 1063.17 676.064 1071.46 757.366L1080.5 846H0V660.781Z"
@@ -81,7 +81,7 @@
                         viewBox="0 0 649 778" 
                         fill="none"
                         class="absolute left-[340px] bottom-[80px] w-[190px] h-auto z-[3] no-layer-shadow"
-                        style={`transform: translateX(-${scrollExitLeft * 0.2}px)`}
+                        style={`transform: translateX(${scrollExit * 0.2}px)`}
                     >
                         <path 
                             d="M302.64 188.036C302.64 188.036 235.728 453.268 302.64 767.556C325.385 780.175 353.247 780.247 375.952 767.556C375.952 767.556 272.896 517.124 342.656 188.036H302.64Z" 
@@ -95,7 +95,7 @@
                         viewBox="0 0 1150 846"
                         fill="none"
                         class="relative w-full h-auto z-[4] layer-shadow"
-                        style={`transform: translateX(-${scrollExitLeft * 0.2}px)`}
+                        style={`transform: translateX(${scrollExit * 0.2}px)`}
                     >
                         <path
                             d="M0 746.5C0 690.009 51.1334 647.293 106.723 657.345L145.234 664.309C171.068 668.981 197.72 665.284 221.308 653.757L339.768 595.867C382.517 574.976 431.313 570.01 477.395 581.861L744.365 650.518C774.377 658.237 805.773 658.875 836.075 652.384L871.331 644.831C956.402 626.606 1042.98 668.489 1081.5 746.5L1149.5 845.5H0V746.5Z"
