@@ -8,8 +8,8 @@
     let entered = false;
     let scrollExit = 0;
 
-    $: scrollExit = Math.min(scrollY, 700);
-    $: scrollScale = Math.max(1 - scrollExit * 0.00075, 0.3);
+    $: scrollExit = Math.min(scrollY, 800);
+    $: scrollScale = Math.max(1 - scrollY * 0.00075, 0.4);
 
     onMount(() => {
         const timeout = setTimeout(() => {
@@ -27,9 +27,9 @@
     >
         <div
             class="landscape-scroll origin-bottom-left"
-            style={`transform: scale(${scrollScale})`}
+            style={`transform: scale(${scrollScale })`}
         >
-            <div class={`relative w-[550px] bottom-[25px] landscape-enter ${entered ? "entered" : ""}`}>
+            <div class={`relative w-[550px] bg-white bottom-[25px] landscape-enter ${entered ? "entered" : ""}`}>
                 <div class="landscape-layer">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
