@@ -45,8 +45,9 @@
             <div
                 in:fly={{ y: 500, duration: 500, delay: 400 }}
                 style={`transform: translateY(${Math.min(scrollY * 0.3, 500)}px); will-change: transform;`}
+                class="relative z-[1]"
             >
-                <div class="absolute top-0 h-full  left-1/2 -translate-x-1/2">
+                <div class="absolute top-0 h-full left-1/2 -translate-x-1/2">
                     <div class="animate-wave-horizontal-right">
                         <svg
                             class="h-[191px] -ml-[132px] text-[var(--wave)] animate-wave-vertical-up"
@@ -67,12 +68,12 @@
                 </div>
             </div>
             
-            
             <div
                 in:fly={{ y: 500, duration: 500 }}
                 style={`transform: translateY(${Math.min(scrollY * 0.08, 700)}px); will-change: transform;`}
-            >
-                <div class="absolute top-[70px] h-full  left-1/2 -translate-x-1/2">
+                class="relative z-[3]"
+            >   
+                <div class="absolute top-[70px] h-full left-1/2 -translate-x-1/2">
                     <div class="animate-wave-horizontal-left">
                         <svg
                             class="-mr-[132px] h-[191px] text-[var(--wave-two)] animate-wave-vertical-down"
@@ -93,11 +94,11 @@
                 </div>
             </div>
             
-            <div>
-                <div class="absolute top-[150px] h-full z-[3] left-1/2 -translate-x-1/2">
+            <div class="relative z-[5]">
+                <div class="absolute top-[150px] h-full left-1/2 -translate-x-1/2">
                     <div class="animate-wave-horizontal-right">
                         <svg
-                            class="-ml-[132px] h-[191px] text-[var(--background)] z-[4] animate-wave-vertical-up"
+                            class="-ml-[132px] h-[191px] text-[var(--background)] animate-wave-vertical-up"
                             viewBox={`0 0 ${viewBoxWidth} 191`}
                             preserveAspectRatio="none"
                         >

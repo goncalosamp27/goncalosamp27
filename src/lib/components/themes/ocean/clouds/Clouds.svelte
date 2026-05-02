@@ -183,13 +183,13 @@
 
 <svelte:window on:mousemove={handleMouseMove} />
 
-<div class="absolute inset-0 z-[2] pointer-events-none">
+<div class="absolute inset-0 z-[5] pointer-events-none">
     {#each clouds as cloud, i}
         {@const CloudSvg = cloud.component}
         {@const parallaxX = mouseX * (12 + i * 4)}
         {@const parallaxY = mouseY * (8 + i * 3)}
         {@const cloudSide = cloud.left < 50 ? -1 : 1}
-        {@const scrollDrop = Math.min(scrollY * 1.4, 1000)}
+        {@const scrollDrop = Math.min(scrollY * 0.8, 1000)}
         {@const scrollOutDrift = Math.min(scrollY * 1.5, 1000) * cloudSide}
 
         <div
