@@ -13,7 +13,7 @@
             transform:
                 translateX(-50%)
                 translateY(${Math.min(scrollY * 1, 350)}px)
-                scale(${Math.max(1 - scrollY * 0.0008, 0.7)});
+                scale(${Math.max(1 - scrollY * 0.0008, 0.8)});
             will-change: transform;
         `}
     >
