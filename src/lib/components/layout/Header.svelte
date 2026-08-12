@@ -115,8 +115,8 @@
                     hover:backdrop-blur">
             Projects
         </a>
-        <a href="#contact"
-            on:click|preventDefault={() => scrollToId('contact')}
+        <a href="#experience"
+            on:click|preventDefault={() => scrollToId('experience')}
             class="min-w-[10ch] text-center rounded-full px-4 py-2 
                     border-2 border-transparent
                     transition-all duration-500

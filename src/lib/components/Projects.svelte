@@ -6,14 +6,40 @@
     onMount(() => show = true);
 
     const projects = [
-        { title: 'Forest on fire', 
-          description: 'Fun and interactive 3D WEBGL scene where you can pilot a firefighter helicopter to stop a forest fire.', 
-          href: 'https://github.com/goncalosamp27/CG-FEUP/tree/main/project', 
-          tags: ['WebGL','JavaScript','GLSL']},
+        {
+          title: 'AssetGuard',
+          description:
+            'Android app for planning and carrying out route-based security inspections, with maps and location-based checkpoint validation.',
+          href: 'https://github.com/goncalosamp27/AssetGuard',
+          tags: ['Kotlin', 'Jetpack Compose', 'Firebase']
+        },
+
+        {
+          title: 'MatchBy',
+          description:
+            'Web platform for discovering, and organizing local sports matches with sports preferences & location based match search.',
+          href: 'https://github.com/goncalosamp27/MatchBy',
+          tags: ['Blazor', 'C#', '.NET', 'PostgreSQL']
+        },
+
+        {
+          title: 'HomeMaestro',
+          description:
+            'Smart home automation system for managing IoT devices and configurable automation workflows.',
+          href: 'https://github.com/goncalosamp27/HomeMaestro',
+          tags: ['Java', 'Spring Boot', 'TypeScript']
+        },
+        {
+          title: 'ProductScore',
+          description:
+            'Cross-platform mobile app for scanning food products and presenting nutrition and food-safety information.',
+          href: 'https://github.com/goncalosamp27/ProductScore',
+          tags: ['Flutter', 'Dart', 'Supabase']
+        },
 
         { title: 'SyncIt!', 
           description: 'Web Application designed for Music and Dance enthusiasts to create, promote, manage or attend events.', 
-          href: 'https://github.com/goncalosamp27/LBAW-FEUP', 
+          href: 'https://github.com/goncalosamp27/SyncIt', 
           tags: ['Laravel','JavaScript','pgSQL','CSS'] },
 
         { title: 'Smoking Prediction', 
@@ -21,10 +47,10 @@
           href: 'https://github.com/goncalosamp27/IA-FEUP/tree/main/Project2', 
           tags: ['Python','Jupyter Notebook']},
 
-        { title: 'Projeto FEUP Submissions', 
-          description: 'Web platform where Projeto FEUP students upload files to be evaluated, manage groups, and indicate participant contributions.', 
-          href: 'https://github.com/goncalosamp27/Projeto-Integrador-2425', 
-          tags: ['node.js','next.js','React','pgSQL'] },
+        { title: 'Forest on fire', 
+          description: 'Fun and interactive 3D WEBGL scene where you can pilot a firefighter helicopter to stop a forest fire.', 
+          href: 'https://github.com/goncalosamp27/CG-FEUP/tree/main/project', 
+          tags: ['WebGL','JavaScript','GLSL']},
 
         { title: 'TreeR', 
           description: 'Mobile social media app promoting sustainability where users can share reduce, reuse and recycle actions.', 
@@ -54,15 +80,10 @@
         { title: 'Clothing Shop', 
           description: 'Clothing marketplace where you can either sell your items or buy from other users.', 
           href: 'https://github.com/goncalosamp27/LTW-FEUP', 
-          tags: ['HTML','PHP','JavaScript','SQL'] },
-
-        { title: 'Personal website',
-          description: 'Single-Page personal portfolio with a clean, cartoon-style UI.', 
-          href: 'https://github.com/goncalosamp27/goncalosamp27', 
-          tags: ['Svelte','Tailwind CSS','TypeScript'] },
+          tags: ['HTML','PHP','JavaScript','SQL'] }
     ];
 
-    const PAGE_SIZE = 6;
+    const PAGE_SIZE = 5;
     let page = 0;
 
     $: totalPages = Math.max(1, Math.ceil(projects.length / PAGE_SIZE));
@@ -76,9 +97,8 @@
   {#if show}
     
     <div class="w-full max-w-6xl px-4 md:px-6"in:fly={{ y: -30, duration: 1500}}>
-      <h2 class="text-3xl md:text-3xl font-bold text-center mb-10"
-          style="color: var(--hover)">
-        Projects I've built / contributed to:
+      <h2 class="text-3xl md:text-3xl font-bold text-center mb-10" style="color: var(--hover)">
+        Selected Projects
       </h2>
 
       {#key page} 

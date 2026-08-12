@@ -31,7 +31,7 @@
   </header>
 
   <div class="flex-1 min-h-0">
-    <p class="mt-2 text-sm text-white/80 line-clamp-3">
+    <p class="mt-2 text-sm text-white/80 line-clamp-3 text-justify">
       {description}
     </p>
   </div>
