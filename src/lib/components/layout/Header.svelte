@@ -214,11 +214,11 @@
       </a>
 
       <a
-        href="#contact"
+        href="#experience"
         class="px-4 py-3 hover:bg-[var(--wave-two)]/30 hover:text-[var(--hover)] transition"
         on:click={closeMobileMenu}
       >
-        Contact
+        Experience
       </a>
     </div>
   </nav>
