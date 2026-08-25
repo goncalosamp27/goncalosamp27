@@ -43,3 +43,21 @@
     animation: moon-pulse 5s ease-in-out infinite;
     transform-origin: center;
 }
+
+@media (max-width: 1023px), (hover: none) and (pointer: coarse) {
+    .sun-pulse {
+        animation: none;
+        opacity: 0.92;
+        box-shadow:
+            0 0 24px rgba(227, 185, 108, 0.5),
+            0 0 55px rgba(227, 185, 108, 0.28);
+    }
+
+    .moon-pulse {
+        animation: none;
+        opacity: 0.92;
+        box-shadow:
+            0 0 20px rgba(220, 220, 220, 0.42),
+            0 0 48px rgba(190, 190, 190, 0.25);
+    }
+}

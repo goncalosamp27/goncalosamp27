@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { fly, scale } from 'svelte/transition';
+    import { fly } from 'svelte/transition';
     import { onMount } from 'svelte';
     import '$lib/components/themes/ocean/oceanhero.css';
     import Clouds from '$lib/components/themes/ocean/clouds/Clouds.svelte';
@@ -20,15 +20,15 @@
 
     onMount(() => {
         const update = () => {
-            screenWidth = window.innerWidth;
-            oceanReady = false;
+            const nextWidth = window.innerWidth;
 
-            setTimeout(() => {
-                oceanReady = true;
-            }, 10);
+            if (nextWidth !== screenWidth) {
+                screenWidth = nextWidth;
+            }
         };
 
         update();
+        oceanReady = true;
         window.addEventListener('resize', update);
 
         return () => window.removeEventListener('resize', update);
@@ -38,7 +38,9 @@
 {#if oceanReady}
 <div class="relative w-full h-full overflow-hidden">
     <Clouds {theme} {scrollY} />
-    <Landscape {theme} {scrollY} />
+    {#if screenWidth >= 1536}
+        <Landscape {theme} {scrollY} />
+    {/if}
     <SunMoon {theme} {scrollY} />
     <div class="absolute bottom-0 left-0 w-full pointer-events-none">
         <div class="relative w-full h-[200px]">

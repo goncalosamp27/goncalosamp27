@@ -27,3 +27,14 @@
         transform: translateX(-50px);
     }
 }
+
+.ocean-cloud {
+    will-change: transform;
+}
+
+@media (max-width: 1023px), (hover: none) and (pointer: coarse) {
+    .ocean-cloud {
+        filter: none !important;
+        will-change: auto;
+    }
+}

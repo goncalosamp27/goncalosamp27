@@ -198,7 +198,7 @@
                 duration: 900,
                 delay: 500 + i * 180
             }}
-            class={`absolute drop-shadow-lg ${theme === 'night' ? 'text-white/10' : 'text-white/60'}`}
+            class={`ocean-cloud absolute drop-shadow-lg ${theme === 'night' ? 'text-white/10' : 'text-white/60'}`}
             style={`
                 top: ${cloud.top}vh;
                 left: ${cloud.left}vw;
@@ -210,7 +210,6 @@
                         ${parallaxY + scrollDrop}px
                     );
                 transform-origin: center;
-                will-change: transform;
             `}
         >
             <div
