@@ -36,7 +36,7 @@
 
     <a
       class="home-button mt-9 inline-flex rounded-full px-7 py-3.5 text-base font-bold"
-      href="/"
+      href="/goncalosamp27"
     >
       Back to home
     </a>
