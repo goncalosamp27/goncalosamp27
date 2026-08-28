@@ -18,6 +18,10 @@
   };
 </script>
 
+<svelte:head>
+  <title>Gonçalo Sampaio | Portfolio</title>
+</svelte:head>
+
 <main class="flex min-h-screen min-h-[100svh] items-center justify-center bg-[var(--background)] px-6 py-16 text-[var(--white)]">
   <Header standalone />
 

@@ -6,6 +6,10 @@
   import ParallaxTest from '$lib/components/ParallaxTest.svelte';
 </script>
 
+<svelte:head>
+  <title>Gonçalo Sampaio | Portfolio</title>
+</svelte:head>
+
 <main>
   <Hero/>
   <About/>

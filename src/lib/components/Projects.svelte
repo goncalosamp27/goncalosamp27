@@ -17,7 +17,7 @@
         {
           title: 'MatchBy',
           description:
-            'Web platform for discovering, and organizing local sports matches with sports preferences & location based match search.',
+            'Web platform for discovering, and organising local sports matches with sports preferences & location based match search.',
           href: 'https://github.com/goncalosamp27/MatchBy',
           tags: ['Blazor', 'C#', '.NET', 'PostgreSQL']
         },

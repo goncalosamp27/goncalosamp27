@@ -60,19 +60,28 @@
     {#key $currentTheme}
         {#if mounted}
             <div
-                class="absolute inset-0 z-[2] flex items-center justify-center pointer-events-none"
-                style={`transform: ${
-                    ($currentTheme === 'day' || $currentTheme === 'night')
-                        ? `translateY(${Math.min(scrollY * 1, 500)}px)`
-                        : 'translateY(0px)'
-                }; will-change: transform;`}
+            class="absolute inset-0 z-[2] flex items-center justify-center pointer-events-none"
+            style={`transform: ${
+                $currentTheme === 'day' || $currentTheme === 'night'
+                ? `translateY(${Math.min(scrollY, 500)}px)`
+                : 'translateY(0px)'
+            }; will-change: transform;`}
             >
+            <div class="flex flex-col items-center text-center">
                 <h1
-                    class="text-7xl md:text-8xl font-bold title text-center"
-                    in:fly|global={{ y: -50, duration: 2500 }}
+                class="text-7xl md:text-8xl font-bold title"
+                in:fly|global={{ y: -50, duration: 2500 }}
                 >
-                    Gonçalo Sampaio
+                Gonçalo Sampaio
                 </h1>
+
+                <span
+                class="mt-4 text-4xl md:text-5xl font-semibold title "
+                in:fly|global={{ y: 50, duration: 2500, delay: 500}}
+                >
+                Software Engineer
+                </span>
+            </div>
             </div>
         {/if}
     {/key}

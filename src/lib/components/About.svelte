@@ -11,9 +11,9 @@
     {#if show}
         <div class="w-[90%] md:w-[55%] max-w-3xl mx-auto rounded-3xl border-[3px] border-[var(--contrast)] shadow-lg/20 bg-black/20 backdrop-blur-md grid grid-cols-1 xl:grid-cols-2 gap-8 p-6 md:p-8" in:fly={{ y: -30, duration: 1500}}>
             <div class="flex flex-col items-center text-center gap-6 md:gap-6">
-                <img src={asset('/images/profile.avif')} alt="Profile" class="block w-full max-w-[300px] aspect-[4/5] max-h-[320px] object-cover object-center rounded-2xl border-[3px] border-[var(--contrast)]" style="object-fit: cover"/>
+                <img src={asset('/images/profile.avif')} alt="Gonçalo Sampaio" class="block w-full max-w-[250px] h-[250px] object-cover object-center rounded-2xl border-[3px] border-[var(--contrast)]" style="object-fit: cover"/>
 
-                <h1 class="font-semibold xl:text-4xl text-5xl" style="color: var(--contrast)">Gonçalo Sampaio</h1>
+                <h1 class="font-semibold xl:text-4xl text-4xl" style="color: var(--contrast)">Gonçalo Sampaio</h1>
                 <nav class="w-[90%] mx-auto flex flex-wrap items-center justify-evenly text-[var(--white)]">
                     
                     <a href="https://github.com/goncalosamp27" target="_blank" rel="noopener noreferrer"
@@ -40,6 +40,35 @@
                         </svg>
                     </a>
                 </nav>
+                <a
+                    href={asset('/files/Resume.pdf')}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center justify-center gap-2
+                        rounded-lg border-2 border-[var(--contrast)]
+                        bg-black/20 px-5 py-2.5
+                        text-sm font-semibold text-white
+                        transition-all duration-300 ease-out
+                        hover:-translate-y-1
+                        hover:bg-[var(--hover)]
+                        hover:text-[var(--background)]
+                        focus:outline-none focus:ring-2 focus:ring-[var(--hover)]"
+                >
+                    View Resume
+
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        class="h-4 w-4"
+                        aria-hidden="true"
+                    >
+                        <path d="M7 17L17 7" />
+                        <path d="M7 7h10v10" />
+                    </svg>
+                </a>
             </div>
 
             <div class="flex flex-col items-center text-center gap-4 md:gap-6 px-1">
